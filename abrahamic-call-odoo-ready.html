@@ -1,0 +1,746 @@
+<div id="ln-root" class="ln-root" data-ln="lecture">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700;800&display=swap');
+#ln-root{--bg:#F4F3EF; --paper:#FFFFFF; --paper-2:#FAF9F6; --ink:#1C2030; --ink-2:#3C4256; --muted:#6B7185; --line:#E5E3DC;
+  --indigo:#3A47A6; --indigo-soft:#ECEEFB; --teal:#1F7A70; --teal-soft:#E4F3F0; --amber:#A26A00; --amber-soft:#FFF4D9;
+  --rose:#B23A48; --rose-soft:#FBE9EC; --violet:#6A4BB0; --violet-soft:#F0EBFA; --hl:#FFE98A;
+  --shadow:0 1px 2px rgba(28,32,48,.05),0 10px 30px rgba(28,32,48,.07); --r:18px; --fs:1.06rem;
+  --sans:"Hind Siliguri","Noto Sans Bengali","SolaimanLipi",system-ui,sans-serif;
+  --serif:"Noto Serif Bengali","Tiro Bangla","Kalpurush",serif;}
+#ln-root[data-theme="dark"]{--bg:#111318; --paper:#181B22; --paper-2:#1D2129; --ink:#ECEAE4; --ink-2:#CFCCC4; --muted:#9AA0AE; --line:#2B303A;
+  --indigo:#8E9BFF; --indigo-soft:#1E2340; --teal:#5FC8B9; --teal-soft:#132E2A; --amber:#F2BE55; --amber-soft:#2E2614;
+  --rose:#F0899A; --rose-soft:#36191F; --violet:#B9A3F5; --violet-soft:#241D3A; --hl:#6B5A10;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px rgba(0,0,0,.35);}
+#ln-root,#ln-root *,#ln-root *::before,#ln-root *::after{box-sizing:border-box}
+#ln-root{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:var(--fs);line-height:1.9;-webkit-font-smoothing:antialiased;transition:background .3s,color .3s}
+#ln-root a{color:var(--indigo);text-decoration:none}
+#ln-root mark{background:linear-gradient(transparent 52%,var(--hl) 52%);color:inherit;padding:0 2px}
+#ln-root b,#ln-root strong{font-weight:700}
+#ln-root h1,#ln-root h2,#ln-root h3,#ln-root h4{margin:0;color:inherit;text-transform:none;letter-spacing:normal;font-weight:700;line-height:1.4;font-style:normal}
+#ln-root p{margin:0 0 1em}
+#ln-root ul,#ln-root ol{margin:0 0 1em;padding-left:1.3em}
+#ln-root a:hover{text-decoration:none}
+#ln-root img{max-width:100%}
+#ln-root .ln-topbar{position:sticky;top:var(--ln-off,0px);z-index:20;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px) saturate(1.4);-webkit-backdrop-filter:blur(14px) saturate(1.4);border-bottom:1px solid var(--line)}
+#ln-root .ln-tb{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 20px}
+#ln-root .ln-logo{display:flex;align-items:center;gap:10px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#ln-root .ln-logo i{width:30px;height:30px;border-radius:9px;background:var(--indigo);color:#fff;display:grid;place-items:center;font-style:normal;font-size:.95rem;flex:none}
+#ln-root .ln-logo small{font-weight:500;color:var(--muted);margin-left:4px}
+#ln-root .ln-tools{margin-left:auto;display:flex;gap:6px}
+#ln-root .ln-btn{font-family:var(--sans);border:1px solid var(--line);background:var(--paper);color:var(--ink-2);height:36px;min-width:36px;padding:0 10px;border-radius:10px;cursor:pointer;font-size:.9rem;display:inline-flex;align-items:center;justify-content:center;gap:6px;transition:.2s}
+#ln-root .ln-btn:hover{border-color:var(--indigo);color:var(--indigo)}
+#ln-root .ln-btn svg{width:17px;height:17px}
+#ln-root .ln-progress{position:absolute;pointer-events:none;left:0;bottom:-1px;height:3px;width:0;background:linear-gradient(90deg,var(--indigo),var(--teal))}
+#ln-root .ln-hero{background:radial-gradient(900px 380px at 90% -20%,var(--indigo-soft),transparent 65%),radial-gradient(700px 300px at -10% 120%,var(--amber-soft),transparent 60%),var(--paper-2);border-bottom:1px solid var(--line)}
+#ln-root .ln-hero-in{max-width:1080px;margin:0 auto;padding:64px 24px 52px}
+#ln-root .ln-pill{display:inline-flex;gap:8px;align-items:center;font-size:.85rem;font-weight:600;color:var(--indigo);background:var(--paper);border:1px solid var(--line);padding:5px 14px;border-radius:999px}
+#ln-root .ln-hero h1{font-family:var(--serif);font-size:clamp(2rem,5vw,3.3rem);line-height:1.3;margin:20px 0 6px;font-weight:800;max-width:820px}
+#ln-root .ln-hero h1 span{color:var(--indigo)}
+#ln-root .ln-hero .ln-sub{color:var(--muted);font-size:1.05rem;margin:0 0 26px;max-width:720px}
+#ln-root .ln-facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;max-width:960px}
+#ln-root .ln-fact{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px 16px;line-height:1.5}
+#ln-root .ln-fact span{display:block;font-size:.78rem;color:var(--muted)}
+#ln-root .ln-fact b{font-size:.98rem}
+#ln-root .ln-wrap{padding:26px 20px 40px;container-type:inline-size}
+#ln-root .ln-toc a{display:flex;gap:10px;align-items:flex-start;padding:7px 10px;border-radius:10px;color:var(--ink-2);font-size:.92rem;line-height:1.45;border-left:3px solid transparent}
+#ln-root .ln-toc a .ln-n{min-width:24px;height:24px;border-radius:7px;background:var(--paper);border:1px solid var(--line);display:grid;place-items:center;font-size:.75rem;font-weight:700;color:var(--muted);flex:none}
+#ln-root .ln-toc a:hover{background:var(--paper)}
+#ln-root .ln-toc a.ln-active{background:var(--paper);color:var(--indigo);font-weight:600;border-left-color:var(--indigo)}
+#ln-root .ln-toc a.ln-active .ln-n{background:var(--indigo);color:#fff;border-color:var(--indigo)}
+#ln-root .ln-main{min-width:0}
+#ln-root .ln-lesson{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);margin:0 0 28px;overflow:hidden}
+#ln-root .ln-l-head{padding:30px 40px 22px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,var(--paper-2),var(--paper))}
+#ln-root .ln-l-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:.82rem;color:var(--muted)}
+#ln-root .ln-l-no{background:var(--indigo);color:#fff;font-weight:700;border-radius:8px;padding:2px 10px;font-size:.8rem}
+#ln-root .ln-l-head h2{font-family:var(--serif);font-size:clamp(1.4rem,2.6vw,1.85rem);line-height:1.45;margin:10px 0 4px}
+#ln-root .ln-l-head .ln-tag{color:var(--ink-2);margin:0}
+#ln-root .ln-l-body{padding:26px 40px 30px}
+#ln-root .ln-l-body h3{font-family:var(--serif);font-size:1.18rem;margin:30px 0 8px;display:flex;align-items:center;gap:10px}
+#ln-root .ln-l-body h3::before{content:"";width:8px;height:22px;border-radius:4px;background:var(--indigo);flex:none}
+#ln-root .ln-l-body p{margin:0 0 1em}
+#ln-root .ln-l-body ul,#ln-root .ln-l-body ol{padding-left:1.3em;margin:0 0 1.1em}
+#ln-root .ln-l-body li{margin:.3em 0}
+#ln-root .ln-l-body li::marker{color:var(--indigo);font-weight:700}
+#ln-root .ln-goals{background:var(--indigo-soft);border-radius:14px;padding:14px 18px;margin:0 0 18px}
+#ln-root .ln-goals b{display:block;color:var(--indigo);font-size:.9rem;margin-bottom:4px}
+#ln-root .ln-goals ul{margin:0;padding-left:1.2em}
+#ln-root .ln-box{border-radius:14px;padding:15px 18px;margin:20px 0;border:1px solid;font-size:.97em;line-height:1.85}
+#ln-root .ln-box .ln-bt{font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:8px;margin-bottom:6px}
+#ln-root .ln-box .ln-bt i{font-style:normal;width:24px;height:24px;border-radius:7px;display:grid;place-items:center;color:#fff;font-size:.8rem}
+#ln-root .ln-box p:last-child,#ln-root .ln-box ul:last-child,#ln-root .ln-box ol:last-child{margin-bottom:0}
+#ln-root .ln-box ul,#ln-root .ln-box ol{padding-left:1.2em;margin:.3em 0}
+#ln-root .ln-key{background:var(--amber-soft);border-color:color-mix(in srgb,var(--amber) 30%,transparent)}
+#ln-root .ln-key .ln-bt{color:var(--amber)}
+#ln-root .ln-key .ln-bt i{background:var(--amber)}
+#ln-root .ln-ex{background:var(--teal-soft);border-color:color-mix(in srgb,var(--teal) 28%,transparent)}
+#ln-root .ln-ex .ln-bt{color:var(--teal)}
+#ln-root .ln-ex .ln-bt i{background:var(--teal)}
+#ln-root .ln-warn{background:var(--rose-soft);border-color:color-mix(in srgb,var(--rose) 28%,transparent)}
+#ln-root .ln-warn .ln-bt{color:var(--rose)}
+#ln-root .ln-warn .ln-bt i{background:var(--rose)}
+#ln-root .ln-think{background:var(--violet-soft);border-color:color-mix(in srgb,var(--violet) 28%,transparent)}
+#ln-root .ln-think .ln-bt{color:var(--violet)}
+#ln-root .ln-think .ln-bt i{background:var(--violet)}
+#ln-root .ln-oneline{display:flex;gap:12px;align-items:flex-start;background:var(--paper-2);border:1px dashed var(--line);border-radius:14px;padding:14px 18px;margin:22px 0 0}
+#ln-root .ln-oneline b{white-space:nowrap;color:var(--indigo)}
+#ln-root blockquote{margin:20px 0;padding:14px 20px;border-left:4px solid var(--indigo);background:var(--paper-2);border-radius:0 12px 12px 0;font-family:var(--serif);font-size:1.03em}
+#ln-root blockquote cite{display:block;font-family:var(--sans);font-style:normal;font-size:.8rem;color:var(--muted);margin-top:4px}
+#ln-root .ln-flow{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin:18px 0 8px;counter-reset:f}
+#ln-root .ln-flow div{position:relative;background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:12px 10px;text-align:center;font-size:.88rem;line-height:1.5}
+#ln-root .ln-flow div b{display:block;color:var(--indigo);font-size:.95rem}
+#ln-root .ln-flow div::before{counter-increment:f;content:counter(f,bengali);position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--indigo);color:#fff;width:22px;height:22px;border-radius:50%;font-size:.75rem;display:grid;place-items:center}
+#ln-root .ln-flow div:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:700}
+#ln-root .ln-two{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+#ln-root .ln-card{border:1px solid var(--line);border-radius:14px;padding:16px 18px;background:var(--paper-2)}
+#ln-root .ln-card h4{margin:0 0 8px;font-size:1rem;display:flex;gap:8px;align-items:center}
+#ln-root .ln-card ol,#ln-root .ln-card ul{margin:0;padding-left:1.2em}
+#ln-root .ln-card.ln-dark{background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 7%,var(--paper)),var(--paper))}
+#ln-root .ln-card.ln-gold{background:linear-gradient(180deg,var(--amber-soft),var(--paper))}
+#ln-root .ln-card.ln-gold h4{color:var(--amber)}
+#ln-root .ln-tw{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:18px 0}
+#ln-root table{border-collapse:collapse;width:100%;min-width:560px;font-size:.93em;line-height:1.7}
+#ln-root th,#ln-root td{padding:11px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+#ln-root th{background:var(--paper-2);font-weight:700;font-size:.86rem;color:var(--ink-2)}
+#ln-root tr:last-child td{border-bottom:none}
+#ln-root .ln-chip{display:inline-block;font-size:.76rem;font-weight:700;padding:1px 9px;border-radius:999px}
+#ln-root .ln-c-no{background:var(--rose-soft);color:var(--rose)}
+#ln-root .ln-c-mid{background:var(--amber-soft);color:var(--amber)}
+#ln-root .ln-c-ok{background:var(--teal-soft);color:var(--teal)}
+#ln-root .ln-tl{position:relative;margin:20px 0 6px;padding-left:28px}
+#ln-root .ln-tl::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--indigo),var(--teal))}
+#ln-root .ln-tl-item{position:relative;margin:0 0 16px}
+#ln-root .ln-tl-item::before{content:"";position:absolute;left:-25px;top:8px;width:14px;height:14px;border-radius:50%;background:var(--paper);border:3px solid var(--indigo)}
+#ln-root .ln-tl-item b{display:inline-block;background:var(--indigo-soft);color:var(--indigo);border-radius:7px;padding:0 9px;font-size:.85rem;margin-right:6px}
+#ln-root .ln-tl-item p{margin:2px 0 0;color:var(--ink-2);font-size:.95em}
+#ln-root .ln-terms{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+#ln-root .ln-terms span{background:var(--paper-2);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.85rem}
+#ln-root a.ln-fn{font-size:.66em;font-weight:700;vertical-align:super;line-height:0;margin-left:2px;padding:1px 6px;border-radius:6px;background:var(--indigo-soft);color:var(--indigo);border:1px solid color-mix(in srgb,var(--indigo) 25%,transparent)}
+#ln-root a.ln-fn:hover{background:var(--indigo);color:#fff}
+#ln-root .ln-pop{position:fixed;z-index:90;max-width:340px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 50px rgba(0,0,0,.2);padding:14px 16px;font-size:.9rem;line-height:1.75;display:none}
+#ln-root .ln-pop.ln-show{display:block;animation:ln-fade .15s ease}
+#ln-root .ln-pop .ln-go{display:inline-block;margin-top:6px;font-size:.8rem;font-weight:600}
+@keyframes ln-fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+#ln-root .ln-q{border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 14px;background:var(--paper-2)}
+#ln-root .ln-q p{margin:0 0 10px;font-weight:600}
+#ln-root .ln-opts{display:grid;gap:8px}
+#ln-root .ln-opt{font-family:var(--sans);text-align:left;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:10px;padding:9px 14px;cursor:pointer;font-size:.95rem;line-height:1.5;transition:.15s}
+#ln-root .ln-opt:hover{border-color:var(--indigo)}
+#ln-root .ln-opt.ln-right{background:var(--teal-soft);border-color:var(--teal);color:var(--teal);font-weight:600}
+#ln-root .ln-opt.ln-wrong{background:var(--rose-soft);border-color:var(--rose);color:var(--rose)}
+#ln-root .ln-why{margin-top:10px;font-size:.92rem;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:8px}
+#ln-root .ln-q.ln-done .ln-why{display:block}
+#ln-root .ln-score{font-weight:700;color:var(--indigo)}
+#ln-root .ln-gloss input{width:100%;font-family:var(--sans);font-size:.95rem;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--paper-2);color:var(--ink);margin:4px 0 16px}
+#ln-root .ln-gloss input:focus{outline:none;border-color:var(--indigo)}
+#ln-root .ln-gloss ol{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#ln-root .ln-gloss li{background:var(--paper-2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;font-size:.92em;line-height:1.7;scroll-margin-top:calc(var(--ln-off,0px) + 80px);margin:0}
+#ln-root .ln-gloss li:target{outline:2px solid var(--indigo)}
+#ln-root .ln-gloss .ln-gn{font-size:.72rem;font-weight:700;color:var(--indigo);background:var(--indigo-soft);border-radius:6px;padding:1px 7px;margin-right:6px}
+#ln-root .ln-gloss .ln-en{font-style:italic;color:var(--muted);font-size:.9em}
+#ln-root .ln-foot{max-width:1240px;margin:0 auto;padding:20px 20px 60px;text-align:center;color:var(--muted);font-size:.85rem}
+#ln-root .ln-totop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;opacity:0;pointer-events:none;transition:.25s;box-shadow:var(--shadow);z-index:40}
+#ln-root .ln-totop.ln-show{opacity:1;pointer-events:auto}
+#ln-root .ln-titlepage{text-align:center;padding:24px 10px 26px;margin:4px 0 24px;border:1px solid var(--line);border-radius:14px;background:var(--paper-2)}
+#ln-root .ln-titlepage p{margin:0 0 12px}
+#ln-root .ln-tp-quote{font-family:var(--serif);font-style:italic;color:var(--ink-2)}
+#ln-root .ln-tp-quote span{display:block;font-family:var(--sans);font-style:normal;font-size:.85rem;color:var(--muted)}
+#ln-root .ln-tp-small{color:var(--muted)}
+#ln-root .ln-tp-big{font-family:var(--serif);font-size:2rem;font-weight:800;line-height:1.35;color:var(--indigo)}
+#ln-root .ln-addr{border-left:3px solid var(--line);padding-left:14px;color:var(--ink-2);line-height:1.7}
+#ln-root h3.ln-orig-h{display:inline-block;color:var(--rose);border:1px dashed color-mix(in srgb,var(--rose) 45%,transparent);border-radius:10px;padding:6px 14px;margin:14px 0 16px;font-size:1.12rem}
+#ln-root h3.ln-orig-h::before{display:none}
+#ln-root .ln-orig-inline{color:var(--rose);border:1px dashed color-mix(in srgb,var(--rose) 45%,transparent);border-radius:6px;padding:0 6px;font-weight:600}
+#ln-root .ln-l-body .ln-text p{text-align:justify}
+#ln-root .ln-text{position:relative}
+#ln-root .ln-text-label{display:inline-flex;gap:6px;align-items:center;font-size:.82rem;font-weight:700;color:var(--muted);letter-spacing:.03em;margin:6px 0 10px;padding:3px 10px;border-radius:999px;background:var(--paper-2);border:1px solid var(--line)}
+#ln-root .ln-hands{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+#ln-root .ln-hand{border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+#ln-root .ln-hand h4{margin:0 0 8px;font-size:.98rem;line-height:1.5}
+#ln-root .ln-hand ol{margin:0;padding-left:1.2em}
+#ln-root .ln-hand.ln-left{background:linear-gradient(180deg,color-mix(in srgb,var(--ink) 7%,var(--paper)),var(--paper))}
+#ln-root .ln-hand.ln-right{background:linear-gradient(180deg,var(--amber-soft),var(--paper))}
+#ln-root .ln-hand.ln-right h4{color:var(--amber)}
+#ln-root blockquote.ln-pull{font-size:.98em}
+#ln-root .ln-sig{margin-top:20px;padding:16px 18px;border-radius:12px;background:var(--paper-2);border:1px dashed var(--line);line-height:1.8}
+#ln-root ol.ln-numbered-long>li{margin:.9em 0;text-align:justify}
+#ln-root .ln-lesson{scroll-margin-top:calc(var(--ln-off,0px) + 70px)}
+#ln-root .ln-toc{margin:0 0 26px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow)}
+#ln-root .ln-toc summary{cursor:pointer;list-style:none;padding:13px 20px;font-weight:700;display:flex;align-items:center;gap:10px}
+#ln-root .ln-toc summary::-webkit-details-marker{display:none}
+#ln-root .ln-toc summary::before{content:"☰";color:var(--indigo)}
+#ln-root .ln-toc[open] summary{border-bottom:1px solid var(--line)}
+#ln-root .ln-toc ol{list-style:none;padding:10px 12px 12px;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:2px 12px}
+#ln-root .ln-toc li{margin:0}
+#ln-root .ln-flash{outline:2px solid var(--indigo);outline-offset:2px}
+#ln-root .ln-tools{display:none}
+#ln-root.ln-js .ln-tools{display:flex}
+#ln-root .ln-gloss input{display:none}
+#ln-root.ln-js .ln-gloss input{display:block}
+#ln-root.ln-js .ln-why{display:none}
+#ln-root.ln-js .ln-q.ln-done .ln-why{display:block}
+#ln-root button{font-family:var(--sans)}
+@container (max-width:700px){#ln-root .ln-l-head{padding:24px 20px 18px}
+#ln-root .ln-l-body{padding:20px 20px 24px}
+#ln-root .ln-hands,#ln-root .ln-two,#ln-root .ln-gloss ol{grid-template-columns:1fr}
+#ln-root .ln-l-body .ln-text p{text-align:left}
+#ln-root .ln-flow{grid-template-columns:repeat(3,1fr);row-gap:20px}
+#ln-root .ln-flow div:nth-child(3)::after{display:none}
+#ln-root .ln-toc ol{grid-template-columns:1fr}}
+@container (max-width:460px){#ln-root .ln-flow{grid-template-columns:1fr 1fr}
+#ln-root .ln-flow div::after{display:none}}
+@media (max-width:640px){#ln-root{--fs:1.01rem}
+#ln-root .ln-hero-in{padding:44px 18px 38px}
+#ln-root .ln-logo small{display:none}
+#ln-root .ln-l-head{padding:24px 20px 18px}
+#ln-root .ln-l-body{padding:20px 20px 24px}
+#ln-root .ln-hands,#ln-root .ln-two,#ln-root .ln-gloss ol,#ln-root .ln-toc ol{grid-template-columns:1fr}
+#ln-root .ln-l-body .ln-text p{text-align:left}
+#ln-root .ln-flow{grid-template-columns:1fr 1fr}
+#ln-root .ln-flow div::after{display:none}}
+@media print{#ln-root .ln-topbar,#ln-root .ln-toc,#ln-root .ln-totop,#ln-root .ln-pop{display:none!important}
+#ln-root .ln-lesson{box-shadow:none;break-inside:avoid-page}}
+/* break out of the narrow blog column (Odoo blog content container) */
+#ln-root{width:min(1040px,calc(100vw - 70px));max-width:none;margin-left:calc(50% - min(520px,(100vw - 70px)/2));margin-right:0}
+@media (max-width:800px){#ln-root{width:auto;margin-left:0}}
+</style>
+<div class="ln-topbar">
+  <div class="ln-tb">
+    <div class="ln-logo"><i>পা</i>লেকচার নোট <small>· মসিহের মিশন (ইব্রাহিমি আহ্বান)</small></div>
+    <div class="ln-tools">
+      <button class="ln-btn" id="ln-fsDown" aria-label="লেখা ছোট">অ−</button>
+      <button class="ln-btn" id="ln-fsUp" aria-label="লেখা বড়">অ+</button>
+      <button class="ln-btn" id="ln-themeBtn" aria-label="থিম"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
+    </div>
+  </div>
+  <div class="ln-progress" id="ln-progress"></div>
+</div>
+
+<section class="ln-hero">
+  <div class="ln-hero-in">
+    <span class="ln-pill">📘 লেকচার নোট · পূর্ণাঙ্গ হুবহু বঙ্গানুবাদ</span>
+    <h1>“মসিহের মিশন”: <span>পৃথিবী থেকে স্বর্গের বার্তা</span></h1>
+    <p class="ln-sub">লেখকের মূল ইংরেজি লেখা কোনো পরিবর্তন ছাড়া হুবহু বাংলায় অনূদিত—৬টি লেকচারে ভাগ করে, প্রতিটির শুরুতে বিষয়সূচি ও শেষে লেখকের মূল কথা, সঙ্গে রিভিশন, কুইজ ও শব্দকোষ।</p>
+    <div class="ln-facts">
+      <div class="ln-fact"><span>লেখক</span><b>ইমামউদ্দিন মুহাম্মদ ত্বহা বিন হাবীব</b></div>
+      <div class="ln-fact"><span>প্রাপক</span><b>বিশ্বমানবতা (অনুলিপি: BBC, CNN, VOA)</b></div>
+      <div class="ln-fact"><span>ধরন</span><b>খোলা ইমেইল বার্তা ও অঙ্গীকারপত্র</b></div>
+      <div class="ln-fact"><span>রচনাকাল</span><b>১০ অক্টোবর, ২০০১ খ্রিস্টাব্দ</b></div>
+      <div class="ln-fact"><span>মোট পড়ার সময়</span><b>প্রায় ৩৫ মিনিট</b></div>
+    </div>
+  </div>
+</section>
+
+<div class="ln-wrap">
+  <details class="ln-toc"><summary>কোর্স সূচি</summary><ol id="ln-tocList"><li><a href="#ln-l0"><span class="ln-n">০</span><span>পরিচিতি ও পড়ার নির্দেশনা</span></a></li><li><a href="#ln-l1"><span class="ln-n">১</span><span>মসিহের মিশন, তিন সন্ত্রাস ও উসামা ইবনে যায়েদ</span></a></li><li><a href="#ln-l2"><span class="ln-n">২</span><span>বিশ্বসংকট, পশ্চিমা নৈতিকতা, লেখকের পরিবার ও ঐশী বিশ্বায়ন</span></a></li><li><a href="#ln-l3"><span class="ln-n">৩</span><span>রেড অ্যালার্ট, সতর্কবার্তা ও ইতিহাসের প্রতিশোধ</span></a></li><li><a href="#ln-l4"><span class="ln-n">৪</span><span>৬০০ পৃষ্ঠার গ্রন্থ, দেশভাগ, মক্কার সন্ধান ও “ইউনাইটেড স্টেট অব আমেরিকা”</span></a></li><li><a href="#ln-l5"><span class="ln-n">৫</span><span>আফগানিস্তান যুদ্ধ, “বোমা ও রুটি” নীতি এবং পূর্ব দিগন্তের সূর্যোদয়</span></a></li><li><a href="#ln-l6"><span class="ln-n">৬</span><span>চূড়ান্ত প্রার্থনা ও “ইব্রাহিমের বিশ্বাসের অঙ্গীকারপত্র”</span></a></li><li><a href="#ln-rev"><span class="ln-n">★</span><span>রিভিশন: লেখকের মূল কথাগুলো</span></a></li><li><a href="#ln-quiz"><span class="ln-n">?</span><span>কুইজ: নিজেকে যাচাই করো</span></a></li><li><a href="#ln-glossary"><span class="ln-n">অ</span><span>শব্দকোষ ও পাদটিকা</span></a></li></ol></details>
+  <div class="ln-main">
+<section class="ln-lesson" id="ln-l0">
+  <div class="ln-l-head"><div class="ln-l-meta"><span class="ln-l-no">লেকচার ০</span><span>⏱ ২ মিনিট</span><span>· পরিচিতি</span></div>
+    <h2>পরিচিতি ও পড়ার নির্দেশনা</h2><p class="ln-tag">দলিলটির পরিচয় এবং এই সংস্করণটি কীভাবে পড়বেন।</p></div>
+  <div class="ln-l-body">
+    <div class="ln-goals"><b>📖 এই লেকচারে</b><ul><li>দলিলের পরিচয় ও প্রেক্ষাপট</li><li>অনুবাদের নীতি</li><li>৬টি লেকচারের মানচিত্র</li></ul></div>
+    <h3>দলিলের পরিচয়</h3>
+    <p>“মসিহের মিশন-এর বার্তার সংক্ষিপ্তসার” (A Briefing of the Message of “THE MESSIAH'S MISSION”) ইমামউদ্দিন মুহাম্মদ ত্বহা বিন হাবীবের লেখা ১৫ পৃষ্ঠার একটি ইংরেজি খোলা বার্তা ও ইশতেহার, যা ২০০১ সালের ১১ সেপ্টেম্বরের (৯/১১) হামলা এবং ৭ অক্টোবর আফগানিস্তানে মার্কিন-নেতৃত্বাধীন সামরিক অভিযান শুরুর ঠিক তিন দিন পর—১০ অক্টোবর ২০০১ তারিখে—বিবিসি, সিএনএন ও ভয়েস অব আমেরিকাসহ বিশ্বমানবতার উদ্দেশ্যে ইমেইলে প্রেরিত। এর শেষে “ইব্রাহিমের বিশ্বাসের অঙ্গীকারপত্র” নামক একটি শপথনামা সংযুক্ত রয়েছে।</p>
+    <h3>অনুবাদের নীতি</h3>
+    <div class="ln-box ln-key"><div class="ln-bt"><i>★</i>এই সংস্করণ সম্পর্কে</div><ul>
+      <li><b>হুবহু অনুবাদ:</b> মূল ইংরেজি লেখার প্রতিটি অনুচ্ছেদ ও বাক্য ক্রম বজায় রেখে বাংলায় অনুবাদ করা হয়েছে। কোনো বক্তব্য বাদ, সংক্ষেপ, নরম বা পরিবর্তন করা হয়নি।</li>
+      <li><b>কোনো মূল্যায়ন নেই:</b> লেখকের বক্তব্যের কোনো সমালোচনা, মূল্যায়ন বা অন্য তথ্যের সঙ্গে তুলনা এই সংস্করণে যোগ করা হয়নি।</li>
+      <li><b>লেকচার বিভাজন:</b> ৬টি লেকচারে ভাগ এবং প্রতিটির শুরুর বিষয়সূচি ও শেষের “লেখকের মূল কথা” অনুবাদকের যোগ—শুধু পড়া ও মনে রাখার সুবিধার জন্য। মূল অনুবাদ প্রতিটি লেকচারে “📜 মূল লেখার অনুবাদ” চিহ্নের নিচে।</li>
+      <li><b>লেখকের নিজের শিরোনাম</b> <span class="ln-orig-inline">এই চিহ্নে</span> দেখানো হয়েছে।</li>
+      <li><b>পাদটিকা:</b> ছোট নম্বরে<a class="ln-fn" href="#ln-g1">১</a> ক্লিক করলে বিশেষায়িত ইংরেজি ও ঐতিহাসিক-ধর্মীয় শব্দের বাংলা অর্থ দেখা যাবে; পূর্ণ তালিকা শেষে শব্দকোষে।</li></ul></div>
+    <h3>লেকচারের মানচিত্র</h3>
+    <div class="ln-flow"><div><b>তিন সন্ত্রাস ও উসামা</b>লেকচার ১</div><div><b>নৈতিকতা ও বিশ্বায়ন</b>লেকচার ২</div><div><b>রেড অ্যালার্ট ও ইতিহাস</b>লেকচার ৩</div><div><b>মক্কা ও “একক রাষ্ট্র”</b>লেকচার ৪</div><div><b>আফগানিস্তান ও পূর্ব</b>লেকচার ৫</div><div><b>প্রার্থনা ও অঙ্গীকার</b>লেকচার ৬</div></div>
+  </div>
+</section><section class="ln-lesson" id="ln-l1">
+  <div class="ln-l-head"><div class="ln-l-meta"><span class="ln-l-no">লেকচার ১</span><span>⏱ ৭ মিনিট</span><span>· পৃষ্ঠা ১–৩</span></div>
+    <h2>মসিহের মিশন, তিন সন্ত্রাস ও উসামা ইবনে যায়েদ</h2></div>
+  <div class="ln-l-body">
+    <div class="ln-goals"><b>📖 এই লেকচারে লেখক যা বলেছেন</b><ul><li>ওয়ার্ল্ড ট্রেড সেন্টার ও পেন্টাগন হামলা এবং প্রকৃত মানুষের সংজ্ঞা</li><li>ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদ (আ.)—সবাই মুসলিম, কোনো সাম্প্রদায়িক কাল্ট নন</li><li>ইব্রাহিমের পরিবারকে বিভক্ত করা শয়তান-প্ররোচিত তিনটি সন্ত্রাস</li><li>উসামা ইবনে যায়েদ বনাম ওসামা বিন লাদেন এবং কুরাইশদের রাজবংশীয় খিলাফত</li><li>বুশ, টনি ব্লেয়ার, শ্যারন, আরাফাত, খোমেনি ও মোল্লা ওমর প্রসঙ্গ</li></ul></div>
+    <div class="ln-text-label">📜 মূল লেখার অনুবাদ</div>
+    <div class="ln-text">
+  <div class="ln-titlepage">
+    <p class="ln-tp-small">পৃথিবী থেকে স্বর্গের বার্তা</p>
+    <p class="ln-tp-big">“মসিহের মিশন”-এর<br><span style="font-size:1.2rem;font-weight:600;color:var(--muted)">বার্তার সংক্ষিপ্তসার (A Briefing of the Message of “THE MESSIAH’S MISSION”)</span></p>
+    <p class="ln-tp-small">ইমামউদ্দিন মুহাম্মদ ত্বহা বিন হাবীব · ১০ অক্টোবর, ২০০১ খ্রিস্টাব্দ</p>
+  </div>
+
+  <h3 class="ln-orig-h">আমাদের সকলের প্রভু আল্লাহর নামে</h3>
+
+  <p>যারা নিরপরাধ মানুষকে কষ্ট দেয়, তারা মানুষ নয়। মানুষের পোশাকে থাকলেও তারা শয়তানের বংশধর। তাদের কোনো দেশ নেই, কোনো রাষ্ট্র নেই এবং কোনো জাতীয়তা নেই।</p>
+
+  <p>মানুষ হলো বিশ্বজনীন। যারা ওয়ার্ল্ড ট্রেড সেন্টার (WTC)<a class="ln-fn" href="#ln-g1">১</a> এবং পেন্টাগনে নিরপরাধ মানুষ হত্যা করেছে, তারা মানবজাতির অন্তর্ভুক্ত নয়। তারা পৈশাচিক।</p>
+
+  <p>প্রকৃত মানুষ তারাই, যারা আল্লাহর সৃষ্টির সেবা করার জন্য মানবজাতিকে ঐশ্বরিক পথে ঐক্যবদ্ধ করে। জাতি, বর্ণ ও গাত্রবর্ণের বৈচিত্র্য মানবভ্রাতৃত্বকে রঙিন করে তোলে—যেমন ফুলেরা বাগানকে স্বর্গীয় রঙে ভরিয়ে তোলে।</p>
+
+  <p>আল্লাহ আমাদের সৃষ্টি করেছেন কোনো সংস্কার ছাড়াই রঙিনভাবে তাঁর সেবা করার জন্য। সংস্কারাচ্ছন্নরা আল্লাহর বান্দা নয়। আমরা সবাই আমাদের আত্মা ও রুহে আল্লাহর অনুগত থাকার এক পবিত্র অঙ্গীকার করে এই জীবনে এসেছি।</p>
+
+  <p>পৃথিবীতে আল্লাহর আনুগত্যের আদর্শ হলেন ইব্রাহিম, মুসা ও ঈসা। মুহাম্মদ এসেছিলেন ইব্রাহিমের আদর্শ পুনরায় অনুশীলন করে দেখাতে।</p>
+
+  <p>ইব্রাহিম ছিলেন আল্লাহর একজন পরিপূর্ণ আত্মসমর্পণকারী বান্দা। সানন্দ আত্মসমর্পণের এই কাজকে আরবিতে বলা হয় “ইসলাম”। ইব্রাহিম ছিলেন একজন “মুসলিম”। মুসা, ঈসা ও মুহাম্মদও তা-ই ছিলেন। তবে মুহাম্মদ ছিলেন চূড়ান্ত (সর্বশেষ)।</p>
+
+  <p>মুসা ইহুদি ছিলেন না, ঈসা খ্রিস্টান ছিলেন না এবং মুহাম্মদ “মোহামেডান”<a class="ln-fn" href="#ln-g2">২</a> ছিলেন না—যেমন ইব্রাহিম ইহুদি বা খ্রিস্টান ছিলেন না।</p>
+
+  <p>মুসা, ঈসা ও মুহাম্মদের বিশ্বস্ত অনুসারীরা ইহুদি, খ্রিস্টান ও মোহামেডান হতে পারে না এবং তারা একে অপরের সঙ্গে সংঘাতেও জড়াতে পারে না; বরং তারা একক সত্তা হওয়ার জন্য কেবল একে অপরের পরিপূরক হিসেবে অবদান রাখে।</p>
+
+  <p>বিশ্বে বর্তমান সংকট মুসা, ঈসা ও মুহাম্মদের অনুসারীদের—এবং ফলে এক ঈশ্বরে বিশ্বাসীদের পিতা ইব্রাহিমের—মধ্যকার কোনো সংঘাত নয়।</p>
+
+  <p>ইব্রাহিমের পরিবারের তিন জনগোষ্ঠীর মধ্যে বর্তমান নারকীয় অগ্নিকাণ্ডের এই ত্রিশূলের উৎপত্তি হয়েছে শয়তান-প্ররোচিত তিনটি সন্ত্রাস থেকে। <strong>প্রথমত</strong>, যখন কিছু দুষ্কৃতকারী হারুনকে সন্ত্রস্ত করে মুসার শিক্ষা থেকে বিচ্যুত করেছিল। <strong>দ্বিতীয়ত</strong>, যখন ঈসা আল্লাহর পবিত্র রুহ হিসেবে বনি ইসরাইলের পথহারা মেষগুলোকে সঠিক পথে ফিরিয়ে আনতে এলেন, তখন দুষ্কৃতকারীরা আল্লাহর রাসুল ঈসাকে সন্ত্রস্ত করল। ঈসাকে তাঁর ঘর ছেড়ে পালাতে হলো। অশুভ শক্তি ঈসাকে তাঁর নতুন আশ্রয়স্থল পর্যন্ত তাড়া করে সন্ত্রাসী কায়দায় অপহরণ করল এবং তাঁকে ক্রুশবিদ্ধ করল। এই নৃশংস সন্ত্রাস ইব্রাহিমের গৃহকে দুটি যুদ্ধরত অংশে—ইহুদি ও খ্রিস্টানে—বিভক্ত করে ফেলল, যারা একে অপরের বিরুদ্ধে গণহত্যা চালিয়েছে। অপকর্মের পরিহাস হিসেবে উভয় গোষ্ঠীই তাদের নীচ স্বার্থসিদ্ধির জন্য চূড়ান্ত মসিহকে<a class="ln-fn" href="#ln-g3">৩</a> নিজেদের মধ্যে ভাগ করে নিয়েছে। জায়নবাদী ইহুদিরা মসিহকে একচেটিয়াভাবে নিজেদের জন্য নিয়েছে, আর খ্রিস্টানরা পুনরুত্থিত ঈসাকে নিজেদের জন্য কল্পনা করেছে। উভয়েই মুক্তির এমন দুই বরকতময় নেতার আবির্ভাবের স্বপ্ন দেখছে, যাঁরা বিশ্বের বাকি সবার ওপর কেবল তাদের নিজ নিজ গোষ্ঠীকেই মুকুট পরাবেন!</p>
+
+  <p>কিন্তু ঐশী সত্য হলো, মানবজাতির একমাত্র “মুক্তিদাতা” (LIBERATOR) আবির্ভূত হবেন আল্লাহর পৃথিবীকে সমস্ত বিভাজন ও বহুত্ববাদ থেকে মুক্ত করতে।</p>
+
+  <p>মুহাম্মদ ছাড়া ইব্রাহিমের পর আল্লাহ ইসহাক ও ইয়াকুবের বংশ থেকে রাসুল পাঠিয়েছেন। মুহাম্মদ ছিলেন ইব্রাহিমের জ্যেষ্ঠ পুত্র ইসমাইলের বংশ থেকে প্রেরিত চূড়ান্ত রাসুল।</p>
+
+  <p>আল্লাহর রুহ ঈসাকে পাঠানো হয়েছিল আদমের বংশধরদের মধ্য থেকে বর্ণবৈষম্য চিরতরে বিলুপ্ত করার জন্য। পিতা-মাতা ছাড়া আদমের জন্মের কথা মানবজাতিকে স্মরণ করিয়ে দিতে ঈসা পিতা ছাড়াই জন্মগ্রহণ করেছিলেন। কিন্তু তাঁকে সন্ত্রাস ও ক্রুশবিদ্ধকরণের বর্বরতার শিকার হতে হয়েছিল। চূড়ান্ত রাসুল হিসেবে মানবসমতাকে চূড়ান্ত রূপ দেওয়ার জন্য মুহাম্মদকে মনোনীত করা হয়েছিল। তিনি মানবজাতির সমতা ঘোষণা করেছিলেন। কেবল তাকওয়া বা ন্যায়নিষ্ঠাই আল্লাহর চোখে—এবং ফলে সহমানুষের চোখে—একজন মানুষকে সম্মানিত করে।</p>
+
+  <p>মানব-দাসত্বের ব্যবসায়ী যাযাবর আরবরা, বিশেষত মক্কাবাসীরা, ক্ষিপ্ত হয়ে উঠেছিল কারণ মুহাম্মদ আরবীয় নিষ্ঠুরতার শিকার দাস ও নিপীড়িতদের নিজের চারপাশে সমবেত করেছিলেন। অবশেষে ইব্রাহিম, মুসা ও ঈসার মতো তাঁকেও তাঁর অনুসারীদের নিয়ে হিজরত করে পালাতে হয়েছিল।</p>
+
+  <p>মদিনায় মুহাম্মদ চূড়ান্ত মানবমুক্তির সমতার বার্তা রক্ষা, প্রচার ও প্রতিষ্ঠার জন্য যোদ্ধাদের একটি বাহিনী গড়ে তুলেছিলেন।</p>
+
+  <p>মুহাম্মদ ও তাঁর বাহিনীর হাতে আরব উপদ্বীপের বর্বররা পরাজিত হয়েছিল।</p>
+
+  <p>আল্লাহর শেষ রাসুল অনুভব করলেন যে তাঁর মিশন সম্পন্ন হয়েছে এবং তাঁর প্রভু শীঘ্রই তাঁকে ডেকে নেবেন। তিনি আল্লাহর নির্দেশে “উসামা”<a class="ln-fn" href="#ln-g4">৪</a> নামক এক কিশোরকে তাঁর উত্তরসূরি নিযুক্ত করলেন।</p>
+
+  <p>উসামা ছিলেন যায়েদ ও বারাকা নামক দুই বরকতময়, নিপীড়িত নারী ও পুরুষের সন্তান।</p>
+
+  <p>বারাকা ছিলেন এক কৃষ্ণাঙ্গ দাসী, যাঁকে আল্লাহ মুহাম্মদের পিতা-মাতার মৃত্যুর পর তাঁকে লালন-পালন করার জন্য নিযুক্ত করেছিলেন।</p>
+
+  <p>যায়েদ ছিলেন মুহাম্মদের একমাত্র সাহাবি, যাঁর নাম আল্লাহ কোরআনে বিশেষ মর্যাদাসহ উল্লেখ করেছেন।</p>
+
+  <p>চৌদ্দশ বছর অতিক্রান্ত হওয়ার পর, বর্তমান ওসামা বিন লাদেনকে<a class="ln-fn" href="#ln-g5">৫</a> মনে হচ্ছে খ্রিস্টবিরোধীর (দাজ্জালের) রোপণ করা এক এজেন্ট, যাতে মানবজাতিকে মসিহ—মানবজাতির সুপথপ্রাপ্ত নেতা, যাঁকে আরবিতে “ইমাম আল-মাহদি”<a class="ln-fn" href="#ln-g6">৬</a> বলা হয়—তাঁর আবির্ভাব থেকে বিভ্রান্ত করা যায়।</p>
+
+  <p>মুহাম্মদের মৃত্যুর প্রাক্কালে তিনি তাঁর উত্তরসূরি নিয়োগ ও অধিষ্ঠানের বিষয়ে তাঁর শেষ ইচ্ছা লিখে দেওয়ার জন্য এক টুকরো কাগজ চেয়েছিলেন<a class="ln-fn" href="#ln-g7">৭</a>। কিন্তু মক্কার কায়েমি স্বার্থের এজেন্টরা তাঁকে তা দিতে বাধা দিয়েছিল। প্রত্যাদিষ্ট পথকে লাইনচ্যুত করার জন্য এটিই ছিল <strong>তৃতীয় ও চূড়ান্ত সন্ত্রাসী কাজ</strong>।</p>
+
+  <p>মুহাম্মদের মৃত্যুর পর আল্লাহর রাসুল মুহাম্মদের বার্তার সম্পূর্ণ বিপরীতে “খিলাফতের” পোশাকে মক্কার শাসক গোত্র কুরাইশ একটি রাজবংশীয় শাসন প্রতিষ্ঠা করে। এই বিন্দু থেকেই “মোহামেডান ও মোহামেডানিজম”-এর উদ্ভব ঘটে।</p>
+
+  <p>মুহাম্মদ কোনো মোহামেডান ছিলেন না, প্রকৃত মুসলমানরা মোহামেডান নয়। তাঁরা ইব্রাহিম, মুসা ও ঈসার মতোই কেবল মুসলমান।</p>
+
+  <p>জোটের নেতারা—বুশ ও টনি ব্লেয়ার—মূল পরিবারের সঙ্গে পুনর্মিলনের জন্য শান্তিস্থাপক হিসেবে এখানে স্বাগত।</p>
+
+  <p>যদি তাঁরা এই অঞ্চলে একটি গুলিও ছোড়েন, আমি আশঙ্কা করছি তাঁরা এক মহাপ্রলয়ের (holocaust)—শয়তান-পৃষ্ঠপোষিত ধ্বংসের কবরস্থানের—সূচনা করবেন।</p>
+
+  <p>পরবর্তীকালে আরব ও খ্রিস্টানদের মধ্যকার যুদ্ধগুলো ছিল ঈসা ও মুহাম্মদের ভণ্ড দাবিদারদের মধ্যকার ক্রুসেড<a class="ln-fn" href="#ln-g8">৮</a>—ঈসা ও মুহাম্মদের প্রকৃত অনুসারীদের মধ্যে নয়। তাঁরা কখনো একে অপরের সঙ্গে লড়াই করতে পারেন না।</p>
+
+  <p>বর্তমান মুখোমুখি অবস্থান মুহাম্মদ, ঈসা ও মুসার অনুসারীদের মধ্যে নয়।</p>
+
+  <p>এরিয়েল শ্যারন, বুশ এবং ইয়াসির আরাফাত আল্লাহর রাসুলদের অনুসারী নন।</p>
+
+  <p>ইরানি শিয়ারা, আফগানি সুন্নিরা এবং আরবের বিন লাদেন হলো আফগানিস্তান, ইরান ও মধ্য এশিয়ার স্পর্শকাতর অঞ্চলে বিশ্বে জাহান্নামের আগুন জ্বালানোর জন্য ইহুদি-খ্রিস্টান ও মোহামেডান আধিপত্যের উসকানিদাতা (agent provocateurs)।</p>
+
+  <p>আমেরিকা তাদের প্রহরী কুকুর হিসেবে শাহকে বসিয়ে ইরানে খোমেনিকে তৈরি করেছে।</p>
+
+  <p>আমেরিকা ও রাশিয়া যৌথভাবে ভারত, রাশিয়া, চীন ও ইন্দোনেশিয়ার প্রবেশদ্বারে দুর্দশা বাড়াতে মোল্লা ওমর ও ওসামা বিন লাদেনকে লালন করেছে।</p>
+
+  <p>আমেরিকান ও ইউরোপীয়রা এই অঞ্চল—ভারত—থেকে যাওয়া অভিবাসীদের বংশধর।</p>
+
+  <p>খোমেনি, মোল্লা ওমর বা লাদেন ব্র্যান্ডের ইসলামের পক্ষে কথা বলার জন্য আমি কোনো মোহামেডান মুসলিম নই।</p>
+
+  <p>আমি বিশ্বে এক একাকী মানুষ, যে মানবজাতির মুক্তির আলোকবর্তিকা হিসেবে নূহ, ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদের কণ্ঠ ধ্বনিত করছে।</p>
+</div>
+    <div class="ln-box ln-key"><div class="ln-bt"><i>★</i>লেখকের মূল কথা</div><p>বিশ্বের বর্তমান সংকট মুসা, ঈসা ও মুহাম্মদের প্রকৃত অনুসারীদের সংঘাত নয়; বরং শয়তান-প্ররোচিত তিনটি ঐতিহাসিক সন্ত্রাসের ফলে সৃষ্ট ইহুদি, খ্রিস্টান ও মোহামেডান ভণ্ডদের ত্রিশূল-সংঘাত।</p></div>
+  </div>
+</section><section class="ln-lesson" id="ln-l2">
+  <div class="ln-l-head"><div class="ln-l-meta"><span class="ln-l-no">লেকচার ২</span><span>⏱ ৭ মিনিট</span><span>· পৃষ্ঠা ৩–৬</span></div>
+    <h2>বিশ্বসংকট, পশ্চিমা নৈতিকতা, লেখকের পরিবার ও ঐশী বিশ্বায়ন</h2></div>
+  <div class="ln-l-body">
+    <div class="ln-goals"><b>📖 এই লেকচারে লেখক যা বলেছেন</b><ul><li>মক্কায় এক দশক ও দিগন্তে নবীদের বার্তা লাভ</li><li>৮৫% শোষিত বনাম ১৫% শোষক এবং ওয়ার্ল্ড ট্রেড সেন্টারের দ্বিমুখী মানদণ্ড</li><li>পশ্চিমা নৈতিক কেলেঙ্কারি (ক্লিনটন-মনিকা, রানি এলিজাবেথ, বুশের কন্যারা)</li><li>লেখকের নিজ পরিবারের ঘটনা: ১৪ বছরে এতিম, যুক্তরাষ্ট্রে ছোট ভাই ও ইহুদি আইনজীবী</li><li>বিশ্বায়ন কার হাতে: ঐশী ঐক্য নাকি শয়তানের “ভাগ করো ও শাসন করো”?</li></ul></div>
+    <div class="ln-text-label">📜 মূল লেখার অনুবাদ</div>
+    <div class="ln-text">
+  <p>আমি প্রায় এক দশক মক্কায় বাস করেছি সেখানকার পাহাড় ও উপত্যকায় ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদের পদচিহ্ন খুঁজতে। মাটিতে আমি একটি বিন্দুও খুঁজে পাইনি।</p>
+
+  <p>আল্লাহর অনুগ্রহে আমি তাঁদের বার্তা খুঁজে পেয়েছি দিগন্তে, আলোতে এবং বাতাসে।</p>
+
+  <p>মানবজাতিকে তাদের চূড়ান্ত গন্তব্যে পথ দেখানোর জন্য একটি কেন্দ্র-বাহিনী (contingency nucleus) নিয়ে আমি তাঁদের কণ্ঠের প্রতিধ্বনি করছি।</p>
+
+  <p>নূহ, ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদ আমাদের আদর্শ—তাঁদের ভণ্ড দাবিদাররা নয়।</p>
+
+  <p>তাঁদের ধরনের নেতৃত্বের তথ্য ও উপাত্তে আমি আশীর্বাদপুষ্ট হয়েছি। বিশ্বের নিপীড়কদের আধিপত্য থেকে মানবজাতির মুক্তির বার্তার গিয়ার আমি খুঁজে পেয়েছি।</p>
+
+  <p>আজকের প্রয়োজনের উপযোগী মানবজাতির নেতৃত্বের সুনির্দিষ্ট উদাহরণ হলেন <strong>উসামা ইবনে যায়েদ</strong>।</p>
+
+  <p>যখনই কোনো রাজনৈতিক-জাতীয় সংকট দেখা দেয়, মানুষ তাদের ধর্মীয় উৎসের দিকে ফিরে তাকায়। সরকারগুলোর শোষণের কারণে মানুষ এর শিকড় দেখতে পায় পশ্চিমা উপনিবেশিক সংযোগে, যা দুর্ভাগ্যবশত ইহুদি-খ্রিস্টান অপবিত্র জোটের দিকে যায়।</p>
+
+  <p>এখন তা চূড়ান্ত পর্যায়ে (climax) পৌঁছেছে।</p>
+
+  <p>ভণ্ড ওসামা বিন লাদেন এবং আজকের তার সমকক্ষ জর্জ ডব্লিউ. বুশ, এরিয়েল শ্যারন ও ইয়াসির আরাফাত—টনি ব্লেয়ার ও ন্যাটোর মতো চাটুকারদেরসহ—শয়তানের রাজনৈতিক মুখোশ। আর ইরানি শিয়ারা, আফগানি সুন্নি এবং আরবীয় সন্ত্রাসীরা হলো বিশ্বাসের জগৎকে ধ্বংসের চুল্লিতে নিক্ষেপ করার ধর্মীয় ছদ্মবেশ।</p>
+
+  <p>মুসলিম দেশগুলোর সরকারগুলো তাদের ডলার ও স্টার্লিং ঋণদাতা প্রভুদের সঙ্গে আছে। অথচ জনসাধারণ ব্যাপকভাবে এক বিশ্ব, এক জাতি এবং আল্লাহর একত্বের ঐশী আহ্বানের পক্ষে। একবার ভুল গুলি ছোড়া হলে তা কেবল মহাপ্লাবনে গিয়েই শেষ হবে—প্রথমে আফগানিস্তান থেকে ইন্দোনেশিয়া পর্যন্ত, আর তারপর, আল্লাহই জানেন।</p>
+
+  <p>গত চল্লিশ বছর ধরে আমি একটি সমাধানের সন্ধানে আছি। যেহেতু ভারত মানবসূচনার মাতৃভূমি, এবং ধর্মের ভিত্তিতে ভারত বিভক্ত হয়েছিল, আর ১৯৭১ সালে ভারত পাকিস্তানকে তার আকারে ছেঁটে দিয়েছিল, তাই আমি দৃশ্যমান ও অদৃশ্য উভয় পরিসরে ঘটনাবলি পর্যবেক্ষণ করা বেছে নিয়েছি। পাকিস্তান প্রতিষ্ঠিত হয়েছিল এর রাজনীতিকদের দ্বারা ধর্মীয় পুনর্জাগরণের প্রতারণাসহ তাদের রাজনৈতিক ও অর্থনৈতিক লাভের জন্য। জনগণ অর্থনৈতিক প্রেক্ষাপটের চেয়ে ধর্মীয় দিকটিই বেশি গ্রহণ করেছিল।</p>
+
+  <p>মনে হতো ওয়ার্ল্ড ট্রেড সেন্টারের টুইন টাওয়ার দুটি ধর্মীয়, অর্থনৈতিক ও সামরিকভাবে পশ্চিমা শক্তির দ্বিমুখী মানদণ্ডের সাক্ষ্য দিতে দাঁড়িয়ে ছিল। যারা এই পৈশাচিক নকশা থেকে লাভবান হয়েছে, তারাই এর প্রতি বেশি ঈর্ষান্বিত হয়ে উঠেছে।</p>
+
+  <p>এটা মোটেও নয় যে ৮৫% শোষিত মানুষের অধিকারের রক্ষকেরা ওয়ার্ল্ড ট্রেড সেন্টার ধ্বংস করেছে ও পেন্টাগনে আঘাত হেনেছে। অবশ্যই লুটের মালের অংশীদাররাই এই কাপুরুষোচিত কাজটি করেছে।</p>
+
+  <p>বিন লাদেন ও তার সৌদি সহযোগীরা সেই ১৫% শোষকদের অন্তর্ভুক্ত, যাদের মক্কা মূলত যুক্তরাষ্ট্র (USA)।</p>
+
+  <p>কিন্তু নিষ্ঠুর পরিহাসের শিকার নিরপরাধদের কেন লক্ষ্যবস্তু করা হচ্ছে? যুক্তরাষ্ট্র ও ইউরোপ কেন অবাধ যৌনাচার ও উচ্ছৃঙ্খলতার স্বর্গরাজ্য? কেন মুসা বা ঈসা—বা তাঁদের কেউ—সেখানে আসীন নন সেই মানুষদের নৈতিক ভিত্তি দিতে, যারা অভাবের দরিদ্র নয় বরং প্রাচুর্য ও উচ্ছৃঙ্খলতার দরিদ্র?</p>
+
+  <p>কেন ক্লিনটন ও মনিকা কেলেঙ্কারি<a class="ln-fn" href="#ln-g9">৯</a> বিশ্বকে কাঁপিয়ে দেয়? কেন রানি এলিজাবেথের দুর্ভাগা পরিবার লাগামহীন কেলেঙ্কারিতে বিধ্বস্ত? কেন ডব্লিউ. বুশের যমজ কিশোরী কন্যারা অসদাচরণের সংবাদ শিরোনাম হয়?</p>
+
+  <p>কেন নৈতিকতার কোনো উচ্চতর মানদণ্ড নেই, যা সেই সমাজগুলোর প্রাচুর্যের সংস্পর্শে আসা নাগরিক ও প্রবাসী—উভয়কেই আনুপাতিক নৈতিক প্রভাব দিতে পারে?</p>
+
+  <p>যাঁরা বস্তুগত সম্পদে নেতৃত্ব দেন, তাঁদের প্রথমে নৈতিকতায়ও নেতৃত্ব দিতে হবে। অন্যথায় তাঁরা কেবল ঈর্ষা ছড়াবেন, যার ফল আজকের বিশ্বসংকট। দরিদ্র জাতিগুলোকে অবশ্যই ধনী জাতিগুলোর আধ্যাত্মিক ও বস্তুগত সমৃদ্ধি অনুসরণ করতে হবে। নতুবা বিপর্যয় অনিবার্য; এটি কেবল সামাজিক বন্ধনের বুননই ধ্বংস করে।</p>
+
+  <p>এখানে আমি আমার নিজের পরিবারের একটি উদাহরণ দিচ্ছি। পিতা-মাতার জ্যেষ্ঠ সন্তান হিসেবে মাত্র ১৪ বছর বয়সে আমি আমার বাবাকে হারাই।</p>
+
+  <p>প্রাচ্যের ঐতিহ্য অনুযায়ী আমাকে আমার ছোট বোন ও ভাইদের মানুষ করতে হয়েছে। আমার লেখা থেকে স্পষ্ট যে আমার পরিবার স্বভাবগতভাবেই নবীদের আদর্শের অনুসারী।</p>
+
+  <p>আমার বাবা আমাদের পাড়ি দেওয়ার মতো কোনো সম্বল রেখে যাননি। তবুও আল্লাহর অনুগ্রহে আমি সফলভাবে তীরে পৌঁছেছিলাম। আমার সবচেয়ে ছোট ভাই চিকিৎসাশাস্ত্রে স্নাতক শেষ করে যুক্তরাষ্ট্রে যায়। সেখানে সে একটি দুষ্টচক্রের সংস্পর্শে আসে এবং একটি ল্যাবে প্রচুর অর্থ জমায়। একজন ইহুদি আইনজীবী তাকে পরামর্শ দেয় যে প্রেসক্রিপশন জালিয়াতি ও কর ফাঁকি দিয়ে উপার্জন করায় কোনো ক্ষতি নেই।</p>
+
+  <p>আইনজীবী তার ভাগ পেল আর আমার ভাই অনৈতিকভাবে মিলিয়ন মিলিয়ন ডলার বানাল। সংস্থা (Agency) যখন বিষয়টি জেনে গেল, তখন আমার ভাই তাদের ফাঁকি দিয়ে তার সম্পদ নিয়ে পালিয়ে এল।</p>
+
+  <p>তার মুখ থেকে ঘটনা শুনে আমি আমার মাকে এই অশুভ কাজের কথা জানালাম। কিন্তু আমার মা ও ভাইয়েরা টাকার পক্ষে দাঁড়াল, এবং একটি ধার্মিক পরিবার এমনভাবে লাইনচ্যুত হলো যেখান থেকে ফেরার কোনো পথ নেই।</p>
+
+  <p>আমি আমার ভাইকে চাপ দিয়ে যাচ্ছিলাম যেন সে যে বিষ গ্রহণ করেছে তা থেকে পেট পরিষ্কার করে এবং তা বমি করে যোগ্য খাতে ব্যয় করে। কিন্তু সে দৃঢ়বিশ্বাসী যে ইহুদি, খ্রিস্টান ও মোহামেডানদের মধ্যে একে অপরকে ঠকানো কোনো পাপ নয়। তার মোহামেডান সহকর্মী ও ইহুদি আইনজীবীর কাছ থেকে সে এটাই শিখেছে। আমার ভাই ও তার সহযোগীরা তার আইনজীবীর মতোই নিজ নিজ বহুত্ববাদী ধর্মে মৌলবাদী।</p>
+
+  <p>আমার ভাই ও তার চক্র যুক্তরাষ্ট্রে যা ঘটেছে তাতে উল্লসিত এবং বিন লাদেন তাদের কাছে একজন বীর। কিন্তু আমার বোন তার নিউইয়র্ক-প্রবাসী ছেলের জন্য উদ্বিগ্ন, যে তার মামার মতো ভাগ্য গড়তে সেখানে আছে।</p>
+
+  <p>সারা বিশ্বের চিত্র এমনই। যারা ইউরোপ ও আমেরিকায় ভাগ্য গড়ে ফেলেছে, তারা বলে “ওগুলো জাহান্নামে যাক”, আর যারা গড়ছে বা গড়ার আকাঙ্ক্ষা করে, তারা বলে “আমাদের পালা আসার জন্য আমেরিকা দীর্ঘজীবী হোক।” এমন অবস্থা কি বিশ্বে অনুকূল সংহতি তৈরি করতে পারে?</p>
+
+  <p>কীভাবে আমাদের গ্রহের এই ক্ষুদ্র আবাসটিকে আমাদের মানবপরিবারের ঘরে পরিণত করা যায় যাতে সকল সদস্য সমানভাবে জীবন ভাগ করে নিতে পারে? এটি কি সম্ভব, নাকি হওয়া উচিত?</p>
+
+  <p>হ্যাঁ, এটি অপরিহার্য। <strong>বিশ্বায়নই (Globalization) আমাদের নিয়তি।</strong></p>
+
+  <p>কিন্তু কার দ্বারা? ঐশী উপায়ে, নাকি আজকের শয়তানি সংঘাতের মাধ্যমে?</p>
+
+  <p>শয়তানের পালা কিনারায় এসে ঠেকেছে। এক পা এগোনো মানেই মহাপ্লাবন।</p>
+
+  <p>একমাত্র সমাধান হলো সম্পূর্ণ ঘুরে দাঁড়ানো (about turn)। ডানে বা বাঁয়ে কোনো মোড় নিয়তির কাজে আসবে না। শয়তানের “ভাগ করো ও শাসন করো” (Divide and rule) [মূলে: Divine and rule] যুগ শেষ হয়ে এসেছে। আর নয়।</p>
+
+  <p>কেবল ঐশী ঐক্যই প্রতিষ্ঠা করতে হবে। ঐশী ঐক্যের যুগের আহ্বান কে জানাতে পারে?</p>
+
+  <p>কোনো বর্ণবাদী ইহুদি কি সেই আহ্বান জানাতে পারে? বাকি জাতিগুলো কি তাকে গ্রহণ করবে?</p>
+
+  <p><strong>ইব্রাহিমের বার্তার পুনঃঅনুশীলনকারীই একমাত্র বিকল্প।</strong></p>
+
+  <ul>
+    <li>ইব্রাহিম ইহুদিও ছিলেন না, খ্রিস্টানও ছিলেন না।</li>
+    <li>মুসা ইহুদিও ছিলেন না, খ্রিস্টানও ছিলেন না।</li>
+    <li>ঈসা খ্রিস্টানও ছিলেন না, ইহুদিও ছিলেন না।</li>
+    <li>তাঁরা ছিলেন আল্লাহর ঋজু আত্মসমর্পণকারী বান্দা।</li>
+    <li>মুহাম্মদ ছিলেন তাঁদের অনুসারী শেষ রাসুল।</li>
+    <li>মুহাম্মদ সুন্নিও ছিলেন না, শিয়াও ছিলেন না।</li>
+  </ul>
+
+  <p>কোনো খ্রিস্টান কি সেই আহ্বান জানাতে পারে? অন্যরা কি তাকে অনুসরণ করবে? কোনো মোহামেডান কি এমন বিপ্লবের আহ্বান জানাতে পারে? অন্যরা কি এতে কর্ণপাত করবে?</p>
+
+  <p>কখনো না। কারণ এই সমস্ত গোষ্ঠীই তাদের রাসুল—মুসা, ঈসা ও মুহাম্মদের—অবাধ্য হয়েছে এবং তাঁদের নামে মিথ্যা বলেছে ও বলে চলেছে। এবং এভাবেই তাঁদের পবিত্র ভাবমূর্তি বিকৃত করেছে।</p>
+
+  <p>আল্লাহর রাসুলগণ এসেছিলেন এক আল্লাহ, এক মানবতা ও এক বিশ্বের বাণী প্রচার ও অনুশীলন করতে।</p>
+
+  <p>ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদের গুণাবলিসম্পন্ন একজন পার্থিব মানুষ এবং একই বিশ্বাসের একটি বাহিনীই আজকের সময়ের দাবি। মরুভূমি যেমন বৃষ্টির জন্য তৃষ্ণার্ত, বিশ্ব তেমনই তৃষ্ণার্ত।</p>
+
+  <p>যে মুহূর্তে বিশ্বজনীন ঐশী আহ্বানের একজন নেতা আবির্ভূত হবেন, মহাদেশ নির্বিশেষে গোটা বিশ্বের নিরপরাধ জনসাধারণ উদীয়মান সূর্যের মতো তাঁর সমর্থনে জেগে উঠবে।</p>
+</div>
+    <div class="ln-box ln-key"><div class="ln-bt"><i>★</i>লেখকের মূল কথা</div><p>যাঁরা বস্তুগত সম্পদে নেতৃত্ব দেন, তাঁদের নৈতিকতায়ও নেতৃত্ব দিতে হবে—নতুবা তা ঈর্ষা ও বিপর্যয় ছড়ায়; এখন বিশ্বায়নের একমাত্র পথ হলো ইহুদি, খ্রিস্টান ও মোহামেডান বিভাজন ত্যাগ করে ইব্রাহিমের একত্ববাদী বার্তায় ফিরে আসা।</p></div>
+  </div>
+</section><section class="ln-lesson" id="ln-l3">
+  <div class="ln-l-head"><div class="ln-l-meta"><span class="ln-l-no">লেকচার ৩</span><span>⏱ ৭ মিনিট</span><span>· পৃষ্ঠা ৬–১০</span></div>
+    <h2>রেড অ্যালার্ট, সতর্কবার্তা ও ইতিহাসের প্রতিশোধ</h2></div>
+  <div class="ln-l-body">
+    <div class="ln-goals"><b>📖 এই লেকচারে লেখক যা বলেছেন</b><ul><li>সতর্কবার্তা ১ ও ২: জর্জ ডব্লিউ. বুশের নির্বাচন ও টনি ব্লেয়ারের যুদ্ধ-উসকানি</li><li>ইতিহাসের ঋণ ও ন্যাটোর উপনিবেশিক পাপ</li><li>সতর্কবার্তা ৩: দুই শিবির, আফগানিস্তানে ক্রুসেড ও বাংলাদেশের নির্বাচন</li><li>১৯৭১-এর যুদ্ধ, ১৯৭২-এ মক্কায় হিজরত এবং বিশ্বনেতাদের পরিণতি</li><li>ইসরায়েল রাষ্ট্র সৃষ্টি, শয়তানি রাজনীতিকদের অভিসম্পাত ও “আমিন” বলার আহ্বান</li></ul></div>
+    <div class="ln-text-label">📜 মূল লেখার অনুবাদ</div>
+    <div class="ln-text">
+  <h3 class="ln-orig-h">রেড অ্যালার্ট! একটি সাবধানবাণী! একটি সতর্কবার্তা!</h3>
+
+  <ol class="ln-numbered-long">
+    <li>বিশ্ব আজ নেতৃত্বের চরম সংকটে। আমেরিকার কোনো স্পষ্টভাবে নির্বাচিত প্রেসিডেন্ট নেই। ডব্লিউ. বুশ প্রেসিডেন্ট হিসেবে একজন ঝুলন্ত মানুষ, যেমন তিনি আল গোরের<a class="ln-fn" href="#ln-g10">১০</a> সঙ্গে ঝুলে ছিলেন। তাঁর প্রেসিডেন্সি আমেরিকার বর্তমান ও ভবিষ্যতের জন্য এক অশুভ লক্ষণ। এই কলঙ্ক জুনিয়র বুশের ওপর নেমে এসেছে তাঁর পিতা সিনিয়র বুশের কাছ থেকে—আল্লাহর রাসুলদের ভূমি মধ্যপ্রাচ্যে তাঁর অন্যায় যুদ্ধের কারণে। আরব সরকারগুলোর কাঠামো হলো ইউরোপ ও যুক্তরাষ্ট্রের পদলেহী। অথচ জনগণ স্বভাবগতভাবেই বিশ্বাসে পশ্চিমা ধর্মদ্রোহিতার বিরুদ্ধে। আমেরিকাই এর নেতা।</li>
+    <li>টনি ব্লেয়ার<a class="ln-fn" href="#ln-g11">১১</a> হলো যুদ্ধের আগুনে ফুঁ দেওয়া সবচেয়ে অশুভ ও নির্লজ্জ ব্যক্তি। তার ঘর ইতিমধ্যেই উপনিবেশিক পাপের স্তূপে নিমজ্জিত। তার মাতা—ব্রিটিশ রাজতন্ত্র—উন্মত্ত যৌন উন্মাদনায় বিধ্বস্ত। তার চাটুকারিতাপূর্ণ উসকানি বুশের নেতৃত্বে যুক্তরাষ্ট্রকে ধ্বংসের দিকে ঠেলে দেবে—সন্ত্রাসীরা ওয়ার্ল্ড ট্রেড সেন্টারকে যতটা ধ্বংসস্তূপ বানিয়েছে, তার চেয়েও বেশি ধ্বংসস্তূপ বানাবে আমেরিকাকে।
+      <p style="margin-top:.6em">শতাব্দীর পর শতাব্দী ধরে ন্যাটো<a class="ln-fn" href="#ln-g12">১২</a> জোটের অংশীদাররা তাদের উপনিবেশিক সন্ত্রাস ও বিভীষিকা দিয়ে বিশ্বে যে ধ্বংসস্তূপ তৈরি করেছে, তার সঙ্গে ওয়ার্ল্ড ট্রেড সেন্টারের ধ্বংসস্তূপের কী তুলনা? মহাসাগরের এক ফোঁটাও কি নয়?</p>
+      <p>ইতিহাস তার ঋণ পরিশোধ করিয়ে নেয়। এটি অনিবার্য। সৎ হলে সরল সুদে শোধ হয়; অন্যথায় জরিমানা ও চক্রবৃদ্ধি সুদে শোধ করতে হয়। অনুতাপ পরিশোধকে সহজ করে, আর অহংকার একে কঠোর করে।</p>
+      <p>মনে হচ্ছে পৃথিবীর পৈশাচিক শাসকদের আল্লাহ বিশ্বের সকল প্রান্ত থেকে ভারতের প্রবেশদ্বারে—পার্বত্য আফগানিস্তানের ভূমিতে—তাড়িয়ে এনেছেন শাস্তি, ক্ষমা বা পুরস্কার দেওয়ার জন্য। সন্ত্রাসী স্বৈরশাসকেরা শাস্তি পাবে, অনুতপ্ত অন্যায়কারীরা ক্ষমা পাবে, আর ঐক্যবদ্ধকারী ন্যায়নিষ্ঠরা পুরস্কৃত হবে।</p>
+    </li>
+    <li>এককেন্দ্রিক আল্লাহর ঐশিকতায় পৈশাচিক বহুত্ববাদের সহযোগীরাই পৃথিবীতে শয়তানের প্রতিষ্ঠান। তারা সবাই মানবজাতিকে রাষ্ট্র ও জাতীয়তায় বিভক্ত করে—এবং পরিহাসের বিষয়, তাও আল্লাহর নামে!
+      <p style="margin-top:.6em">মূলত তারা দুটি শিবিরে বিভক্ত। একটি হলো পশ্চিমা উন্নত দেশগুলো, যারা অতীতে সন্ত্রাস ও বিভীষিকার উপনিবেশিক প্রভু ছিল। দ্বিতীয় শিবিরে রয়েছে অনুন্নত প্রাচ্য দেশগুলো। তারা বেশির ভাগই তাদের পার্থিব লাভের জন্য তাদের উপনিবেশিক প্রভুদের পদলেহী। প্রথম দলটি হলো ইহুদি-খ্রিস্টান মিত্রশক্তি, যারা অতীতে এবং বর্তমানে ইসলাম ও মুসলিম জনসাধারণের বিরুদ্ধে ঐক্যবদ্ধ। পরের দলটি প্রথম দলের এজেন্টদের দ্বারা সরকারি ও অর্থনৈতিকভাবে শাসিত। এখন ইহুদি-খ্রিস্টান মিত্ররা আফগানিস্তান ও এর পৃষ্ঠপোষক পাকিস্তানকে ঘিরে ধরেছে। পাকিস্তান না থাকলে কখনো তালেবান শাসনের অধীনে আফগানিস্তান—বিন লাদেনের কর্মক্ষেত্র—থাকত না।</p>
+      <p>বিশ্বের একমাত্র বিশাল পৌত্তলিক রাষ্ট্র ভারত ইসলাম ও মুসলমানদের বিরুদ্ধে সমানভাবে—যদি আরও বেশি না-ও হয়—বিরোধী। ভারত কাশ্মীর বিদ্রোহে মারাত্মকভাবে কম্পিত। পাকিস্তান, তালেবান ও বিন লাদেনই এর প্রধান অভিযুক্ত। এখন ভারতের সামনে বিরল সুযোগ অপেক্ষা করছে একটি ভুল শব্দের মতো মানচিত্র থেকে পাকিস্তানকে মুছে ফেলার। যুক্তরাষ্ট্র একটি সংকেত দিলেই ভারত ঝাঁপিয়ে পড়ে তা করবে।</p>
+      <p>কমবেশি রাশিয়া ও চীনও নিজ নিজ দেশে মুসলিম বিদ্রোহ থামাতে তালেবান ও বিন লাদেনকে সরাতে চায়। এখন আফগানিস্তানের তথাকথিত “নর্দার্ন অ্যালায়েন্স”<a class="ln-fn" href="#ln-g13">১৩</a> মানেই হলো যুক্তরাষ্ট্র, ইউরোপ, ইসরায়েল, রাশিয়া, ভারত ও চীনের প্রক্সি। এটি সাধারণভাবে বিশ্বের মুসলিম জনসাধারণের এবং বিশেষ করে আফগানিস্তান থেকে ইন্দোনেশিয়া পর্যন্ত জনসাধারণের দৃঢ় বিশ্বাস। বুশ সহজাত বিশ্বাসে হোক বা ভুলে হোক, “ক্রুসেড” শব্দটি উচ্চারণ করে ফেলেছেন। এখন এটি ক্রুসেড, যদি তার চেয়ে বেশি না-ও হয়।</p>
+      <p>মুসলিম দেশগুলোর সরকারগুলো দ্বিধায়। জনগণ নিশ্চিত যে এই মেরুকরণ তাদের অস্তিত্ব ও বিশ্বাসের বিরুদ্ধে একটি ক্রুসেড।</p>
+      <p>ক্ষুদ্র বাংলাদেশে সাম্প্রতিক নির্বাচনে শেখ হাসিনার শোচনীয় পরাজয়ের<a class="ln-fn" href="#ln-g14">১৪</a> অন্যতম কারণ হলো জনগণ মনে করে তাঁর প্রতিষ্ঠানটি ভারতপন্থী, আমেরিকাপন্থী, তালেবানবিরোধী, লাদেনবিরোধী ও ইসলামবিরোধী।</p>
+      <p>ভণ্ড ইহুদি, খ্রিস্টান ও মোহামেডান সরকারগুলো এবং তাদের ধর্মীয় পদসোপান জনসাধারণকে শিখিয়েছে যে ঈশ্বর ইহুদি, খ্রিস্টান ও মোহামেডান—এটা নয় যে মুসা, ঈসা ও মুহাম্মদ ধর্মে মানবজাতির ঐক্যে আল্লাহর বার্তাবাহক। তাই মসিহ, পুনরুত্থিত ঈসা এবং ইমাম মাহদি তিনজন—এরিয়েল শ্যারন, জর্জ ডব্লিউ. বুশ ও ইয়াসির আরাফাতের মতো তিনটি যুদ্ধরত ত্রিশূল, প্রত্যেকে কেবল নিজ নিজ গোষ্ঠীর পক্ষে বিশ্বকে বিশ্বায়িত করতে চায়।</p>
+    </li>
+  </ol>
+
+  <p>আল্লাহ আমাকে তাঁর পৃথিবীর ষাটটিরও বেশি শরৎ ও বসন্ত দেখিয়েছেন। তিনি আমাকে তাঁর স্বর্গের আলোর সবচেয়ে আলোকিত পরিবারগুলোর একটিতে পাঠিয়েছেন—ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদের সেই আলোকিত পরিবারে।</p>
+
+  <p>একাকী মানুষ হিসেবে আমি পাকিস্তানি যুদ্ধবাজদের বোঝানোর চেষ্টা করেছিলাম যাতে ১৯৭১ সালে পাকিস্তানকে ভেঙে দেওয়া যুদ্ধটি এড়ানো যায়। কিন্তু “ভাগ করো ও শাসন করো”-র বিশ্ব আধিপত্যবাদ তাদের এই অশুভ কাজে প্ররোচিত করেছিল।</p>
+
+  <p>১৯৭২ সালে বিশ্বায়নের জন্য মানবজাতিকে পুনঃঐক্যবদ্ধ করতে ইব্রাহিমের হারানো যোগসূত্র খুঁজতে আমি মক্কায় হিজরত করি। আল্লাহর ঘর ধরে আমি একান্তভাবে প্রার্থনা করেছিলাম সেই পৈশাচিক কাজের মূল হোতাদের নির্মূল করার জন্য।</p>
+
+  <p>আমি নিশ্চিত যে আল্লাহ আমার নিবেদন কবুল করেছেন এবং সেই ট্র্যাজেডির সমস্ত প্রধান কুশীলব অপমানজনক পরিণতি নিয়ে পৃথিবী থেকে অপসারিত হয়েছে—আমেরিকার রিচার্ড নিক্সন, ভারতের ইন্দিরা গান্ধী, রাশিয়ার লিওনিদ ব্রেজনেভ, বাংলাদেশের শেখ মুজিবুর রহমান ও জিয়াউর রহমান, এবং পাকিস্তানের জেনারেল ইয়াহিয়া খান ও ভুট্টো।</p>
+
+  <p>মক্কায় থাকাকালীন আমি ইরাকের হাসান আল-বকর এবং ইরানের শাহেনশাহকে—রাশিয়া ও আমেরিকার দুই প্রহরী কুকুরকে—অঞ্চলে পৈশাচিক ভূমিকা পালন করতে দেখেছিলাম। আল্লাহ দোয়া কবুল করলেন, এবং ওই দুজনকে সরিয়ে সাদ্দাম ও খোমেনিকে বসানো হলো পশ্চিমের শয়তানদের তাদের ঘৃণ্য কর্মকাণ্ডের কিছু স্বাদ চাখাতে।</p>
+
+  <p>ঐশী কারণে আরবে মানবসমতা ও ঐক্যের চূড়ান্ত রাসুলের আগমনের পর আরবীয় বর্ণবাদ ও জাতীয়তাবাদের আমি ঘোর বিরোধী। এটাই তাদের ওপর আল্লাহর ক্রোধের কারণ।</p>
+
+  <p>কিন্তু মানবতার অভিশাপ ইসরায়েল সৃষ্টি করার জন্য—তাও আবার মুসা ও ঈসার নামে, মোহামেডানদের বিরুদ্ধে ক্রুসেড হিসেবে—ইউরোপ ও আমেরিকার পশ্চিমা খ্রিস্টবাদের ওপর আল্লাহ ও সমগ্র মানবতার অপরিবর্তনীয় ক্রোধ নেমে এসেছে! এই পাপ আল্লাহকে প্ররোচিত করেছে ইরান ও আফগানিস্তানে সন্ত্রাসী প্রতিষ্ঠান তৈরি করতে এবং পলাতক সন্ত্রাসের শয়তান ওসামা বিন লাদেনের উত্থান ঘটাতে, যাতে মানবতার বিরুদ্ধে অপরাধীদের আফগানিস্তানের ভূমিতে ও তার আশপাশে জড়ো করা হয়—সম্ভবত একে অপরের কবর খোঁড়ার জন্য!</p>
+
+  <p>কোনো বিবেকবান মানুষ কি অস্বীকার করতে পারে যে ইরানি শিয়া সন্ত্রাসীরা ইউরো-আমেরিকান-ইউরেশীয় চাষাবাদের ফসল নয়? খোমেনি, মোল্লা ওমর ও বিন লাদেন কার ফসল? এমনকি পাকিস্তানের পারভেজ মোশাররফও কি একই আধিপত্যবাদের সৃষ্টি নয়?</p>
+
+  <p>মুহাম্মদ কখনো সুন্নি বা শিয়া ছিলেন না—যেমন ইব্রাহিম, মুসা ও ঈসা ইহুদি, খ্রিস্টান, ক্যাথলিক, প্রোটেস্ট্যান্ট, মেথডিস্ট বা অ্যাডভেন্টিস্ট ছিলেন না।</p>
+
+  <p>এখন মুসা, ঈসা ও মুহাম্মদের ভণ্ড দাবিদারদের নিজেদের পাপের কারণে মহা-অগ্নিকাণ্ড ঘটতে চলেছে, অথচ তাদের অনৈতিক রাজনীতিকদের পাপের জন্য মুসা, ঈসা ও মুহাম্মদের নিরপরাধ অনুসারী জনসাধারণ প্রাণ হারাবে!</p>
+
+  <p>আমার এবং আমার মতো অন্যদের মধ্যে ধারণকৃত ইব্রাহিম, মুসা ও মুহাম্মদের আত্মা জ্বলে উঠে বুশ, টনি ব্লেয়ার, এরিয়েল শ্যারন, ইয়াসির আরাফাত, সাদ্দাম ও বিন লাদেনের মতো যুদ্ধবাজদের অভিশাপ দিচ্ছে যেন তারা বিশ্বকে জাহান্নামের আগুনে নিক্ষেপ করার আগেই ধ্বংস হয়ে যায়!</p>
+
+  <p>স্বঘোষিত ভাঁড় টনি ব্লেয়ার বিশ্বকে জ্বালিয়ে দিতে যুদ্ধের ঢাক পেটাচ্ছে! ব্রিটেন কি এতটাই দেউলিয়া হয়ে গেছে যে এই উসকানিদাতাকে ধমকে বলার মতো কোনো মুরুব্বি নেই—“মানবজাতির নিয়তি নিয়ে খেলা বন্ধ করো”? বিশ্বনেতা হওয়ার পথ কি এটিই?</p>
+
+  <p>তথাকথিত সভ্য বিশ্বের উদাসীনতা কতটা করুণ যে বিশ্বমঞ্চে বলার কেউ নেই—শ্রমজীবী করদাতা জনসাধারণ এরিয়েল শ্যারন, আয়াতুল্লাহ খোমেনি, মোল্লা ওমর ও ওসামা বিন লাদেনকে সন্ত্রাস ও বিভীষিকা ছড়াতে এগিয়ে দেয়নি; বরং বিভাজনকারী শয়তানি রাজনীতিকরাই আল্লাহর মানবপরিবারকে জাহান্নামের কিনারায় ঠেলে দিয়েছে!</p>
+
+  <p>আল্লাহ এবং তাঁর রাসুল নূহ, ইব্রাহিম, মুসা ও ঈসার পক্ষ থেকে আমি তাঁদের পূর্বসূরিদের মতো এই ধ্বংসাত্মক খেলার প্রভুদের অভিশাপ দিচ্ছি, এবং বিশ্বমানবতাকে আহ্বান জানাচ্ছি তাদের অমানবিক জাতীয়তাবাদীদের তৈরি সমস্ত সীমানার ঊর্ধ্বে উঠে একমাত্র আল্লাহর পক্ষে দাঁড়াতে, যাতে আদম ও হাওয়ার এক পরিবারে নিজেদের ভাইদের ঐক্যবদ্ধ করা যায়।</p>
+
+  <p>এই সংকটময় সন্ধিক্ষণে আমরা সাধারণ মানুষেরা যদি অনুতপ্ত হৃদয়ে “আমিন” বলি, তবে আল্লাহ আমাদের মসিহ দিয়ে আশীর্বাদ করবেন। নতুবা বুশ, ব্লেয়ার, বর্ণবাদী এরিয়েল শ্যারন, শিয়া খামেনি, সুন্নি মোল্লা ও সন্ত্রাসী বিন লাদেনের সঙ্গে আমরাও জাহান্নামের আগুনে পুড়ব।</p>
+</div>
+    <div class="ln-box ln-key"><div class="ln-bt"><i>★</i>লেখকের মূল কথা</div><p>ইতিহাস তার ঋণ সুদে-আসলে আদায় করে; আফগানিস্তানের পার্বত্য ভূমিতে আজকের সংঘাত হলো উপনিবেশিক শক্তি ও ধর্মীয় ভণ্ডদের নিজেদের কবর খোঁড়ার মঞ্চ—এখনই অনুতপ্ত হয়ে এক পরিবারের আহ্বানে সাড়া না দিলে সর্বগ্রাসী আগুন নেমে আসবে।</p></div>
+  </div>
+</section><section class="ln-lesson" id="ln-l4">
+  <div class="ln-l-head"><div class="ln-l-meta"><span class="ln-l-no">লেকচার ৪</span><span>⏱ ৬ মিনিট</span><span>· পৃষ্ঠা ১০–১২</span></div>
+    <h2>৬০০ পৃষ্ঠার গ্রন্থ, দেশভাগ, মক্কার সন্ধান ও “ইউনাইটেড স্টেট অব আমেরিকা”</h2></div>
+  <div class="ln-l-body">
+    <div class="ln-goals"><b>📖 এই লেকচারে লেখক যা বলেছেন</b><ul><li>কিয়ামতের সাক্ষ্য হিসেবে লেখকের ৬০০ পৃষ্ঠার বাংলা গ্রন্থ</li><li>দ্বিতীয় বিশ্বযুদ্ধ, ১৯৪৭-এর দেশভাগ, পিতা-পিতামহ ও বাংলাদেশের জন্ম</li><li>মক্কায় তাওরাত, ইনজিল ও কোরআনের অভিন্ন মহাসড়ক দর্শন</li><li>আমেরিকার অনন্য সুবিধা ও “United States” থেকে “S” মুছে “United State of America” করার প্রস্তাব</li><li>আফগানিস্তানে যুদ্ধবিরতি ও ইসরায়েল-ফিলিস্তিন সহাবস্থানের শর্ত</li></ul></div>
+    <div class="ln-text-label">📜 মূল লেখার অনুবাদ</div>
+    <div class="ln-text">
+  <p>মসিহের এই সংক্ষিপ্তসারটি একটি ছয়শো পৃষ্ঠার গ্রন্থের সারাংশ, যা আল্লাহ আমাকে লাইন বাই লাইন লিখিয়ে দেওয়ার মতো করে লিখতে সাহায্য করেছেন। বিচার দিবসে যখন আমি আমার আল্লাহর সামনে দাঁড়াব, তখন আমার সমসাময়িক বিশ্ব ও জীবন সম্পর্কে এই গ্রন্থটিই হবে আমার সাক্ষ্য-বিবৃতি।</p>
+
+  <p>যদিও বিস্তৃত গ্রন্থটি বাংলায় রচিত, এর সংক্ষিপ্ত রূপটি প্রথমে ইংরেজিতে লেখা হয়েছে। বর্তমানে গ্রন্থটি আরবি ও উর্দুতে অনুবাদ করা হচ্ছে।</p>
+
+  <p>বাজারে বিক্রির জন্য গ্রন্থটি মুদ্রিত হয়নি, তবে হাজার হাজার বাঁধাই করা ফটোকপি উপযুক্ত মহলে বিতরণ করা হয়েছে।</p>
+
+  <p>এই দৃষ্টিভঙ্গির প্রভাত আমার মনে উঁকি দিতে শুরু করেছিল দ্বিতীয় বিশ্বযুদ্ধের দিনগুলোতে, যখন জাপানি যুদ্ধবিমানের ঝাঁক আসত এবং আমরা বাঙ্কারে লুকিয়ে থাকতাম; যার ফলে ব্রিটিশদের ভারত ছাড়তে হলো এবং ভারত বিভক্ত হয়ে ভারত ও পাকিস্তান হলো।</p>
+
+  <p>আমাদের মুসলিম-অধ্যুষিত এলাকায় হিন্দু সংখ্যালঘুদের নিরাপদ স্থানে আশ্রয় নিতে হচ্ছিল। আমার পিতামহ ও পিতা হিন্দুদের নিরাপত্তা দিতে অসামান্য সাহায্য করেছিলেন। কিন্তু মায়ের দিকের আত্মীয়রা সেই ট্র্যাজেডির লুটের মাল দখল করেছিল। আমার গঠন ছিল সম্পূর্ণভাবে আমার পিতা ও পিতামহের অনুকূলে।</p>
+
+  <p>পাকিস্তান গঠিত হলো। পাকিস্তানকে অর্থবহ করতে আমার পিতা অবদান রেখেছিলেন। কিন্তু পাকিস্তানের বুশ ও ব্লেয়াররা তা হতে দেয়নি। তাই পাকিস্তান ভাঙতে শুরু করল। একা হয়েও আমি পাকিস্তানের বিশুদ্ধ ধারণাটি রক্ষা করার চেষ্টা করেছিলাম, যা একই সঙ্গে পাকিস্তানি যুদ্ধবাজ ও তাদের সহযোগী, ভারত ও তাদের সহযোগী এবং আমেরিকা, রাশিয়া, ব্রিটেন ও বাকি মুসলিমবিরোধী আধিপত্যবাদের বিরুদ্ধে গিয়েছিল।</p>
+
+  <p>ফলে ধ্বংসস্তূপের মাঝে বাংলাদেশের আবির্ভাব ঘটল। এখন বাংলাদেশ বিশ্বের এক নম্বর দুর্নীতিগ্রস্ত প্রতিষ্ঠান। পুনরায় এই দরিদ্রতম দেশটি দুই যুদ্ধরত নারী ও তাদের সাঙ্গোপাঙ্গদের জটিলতায় আটকা পড়েছে—কোন পরিণতির দিকে যাচ্ছে তা কেবল আল্লাহই জানেন।</p>
+
+  <p>পূর্বে যেমন উল্লেখ করেছি, আমি মক্কায় গিয়েছিলাম স্বর্গের যোগসূত্র খুঁজে বের করতে—যদি মানুষ পশুর বদলে স্বর্গীয় হয়ে থাকে।</p>
+
+  <p>সেখানে আমি দেখলাম, স্বর্গীয় মানবজাতির সন্তানেরা এক আল্লাহর জন্য এক মানবতার হজ পালন করতে মক্কায় আসছে, কিন্তু অসংখ্য জাতীয়তায় বিভক্ত হয়ে এবং পশুতুল্য শাসকদের অধীনে—যারা পশ্চিমা অবাধ বহুত্ববাদের এজেন্ট।</p>
+
+  <p>পাশবিক দিক থেকে মুখ ফিরিয়ে আমি নিজেকে স্বর্গের আলো ও পথনির্দেশের দিকে নিবদ্ধ করলাম। হঠাৎ ও নিশ্চিতভাবেই আমি আমার উৎস ও সূচনার হারানো যোগসূত্র খুঁজে পেলাম।</p>
+
+  <p>আমি কোরআন, বাইবেল ও তাওরাতকে অভিন্ন পোশাকে, ঐক্যে ও একসুরে দেখলাম। আমি দেখলাম নূহ, ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদ হলেন একটিমাত্র মহাসড়কের মাইলফলক, যা আমাদের পৃথিবী থেকে শুরু হয়ে কোনো বাঁক ছাড়াই সোজা জান্নাতে গিয়ে শেষ হয়েছে। এর শেষ প্রান্তে কেবল একটিই বাণী খোদাই করা: “আল্লাহ ছাড়া কোনো উপাস্য নেই”—<strong>লা ইলাহা ইল্লাল্লাহ</strong>।</p>
+
+  <p>জনসাধারণ—বিশ্বের সাধারণ মানুষ—আল্লাহর পরিবার। তাঁর পরিবার অবিভাজ্য। যারা আল্লাহর এই পরিবারকে বিভক্ত করেছে, তারা শয়তানের নবী। বিভক্ত জাতীয়তাবাদ ও রাষ্ট্রসত্তা হলো শয়তান ও মন্দের ধর্ম।</p>
+
+  <p>বর্তমান সংকট শয়তানের পৃষ্ঠপোষকতায় সৃষ্ট। এখন বিশ্বায়নই নিয়তি—নতুবা আমরা ধ্বংস হয়ে যাব। বিশ্বায়ন হলো মসিহের কাজ।</p>
+
+  <p>মসিহ হলেন মুসা, ঈসা ও মুহাম্মদের মতো ইব্রাহিমের অনুসারী। যুদ্ধরত আরব, ইহুদি, খ্রিস্টান, আফগান, ভারতীয়, পাকিস্তানি এবং তাদের প্রতিরূপ বিন লাদেন, মোল্লা ওমর ও এরিয়েল শ্যারন হলো শয়তানের সেনাবাহিনী।</p>
+
+  <p>ইউরোপীয়দের মতো নয়, আমেরিকা অতীতে কোনো উপনিবেশিক আধিপত্যবাদী ছিল না; বরং সে নিজেই উপনিবেশিক শৃঙ্খলের ভুক্তভোগী ছিল। এটি আমেরিকার জন্য একটি অত্যন্ত গুরুত্বপূর্ণ ইতিবাচক দিক।</p>
+
+  <p>বস্তুগত শক্তির বিচারে আমেরিকাই একমাত্র পরাশক্তি। আমেরিকা যদি ইব্রাহিমের শিকড়ের “এক আল্লাহর” প্রতি মহাবিশ্বাস গ্রহণের সাহস দেখায়, তবে মুসা, ঈসা ও মুহাম্মদের তিনশো কোটি নিরপরাধ সাধারণ অনুসারী “ভাগ করো ও শাসন করো”-র শয়তানদের পরিত্যাগ করে আমেরিকার সঙ্গে যোগ দেবে—ঐশ্বরিক বিশ্বায়নের মাধ্যমে মানবজাতির মুক্তিদাতা মসিহের যুগের সূচনা করতে।</p>
+
+  <p>বর্তমান জোটের সঙ্গে মিত্রতা বজায় রাখলে আমেরিকা কেবল নিজেকে খ্রিস্টবিরোধীর (Anti-Christ) কৃষ্ণগহ্বরেই ঠেলে দেবে। কেবল সাহসীরাই আল্লাহয় বিশ্বাস করে; কাপুরুষরা নয়।</p>
+
+  <p>মসিহের বিশ্বাস গ্রহণ করতে হলে আমেরিকাকে নিজেকে “দ্য আমেরিকা” (THE AMERICA)-য় রূপান্তরিত করতে হবে। কীভাবে?! বিশ্বায়নের নেতৃত্বের যোগ্য হতে তাকে প্রথমে তার রাষ্ট্রনামের সংক্ষিপ্ত রূপটি সংশোধন করতে হবে।</p>
+
+  <p>বর্তমান USA হলো “United States of America” (আমেরিকার যুক্তরাষ্ট্রসমূহ)। এটি নিজেই বিশ্বায়নবিরোধী। আমেরিকাকে USA-র অর্থ করতে হবে <strong>“United State of America”</strong> (আমেরিকার ঐক্যবদ্ধ একক রাষ্ট্র)—“United States of America” নয়।</p>
+
+  <p>বহুবচন “S” মুছে ফেলে আমেরিকা নূহ, ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদ (তাঁদের ওপর শান্তি বর্ষিত হোক) এবং তাঁদের অনুসারীদের মতো এক আল্লাহর নামে বিশ্বায়নের যুগের সূচনা করবে।</p>
+
+  <p>মসিহীয় মেরুকরণের জন্য প্রথমে আমেরিকাকে সারা বিশ্বে একটি বিরতি ঘোষণা করতে হবে এবং অবিলম্বে আফগানিস্তান ও এর আশপাশে যুদ্ধের হুঙ্কার বন্ধ করতে হবে। পরবর্তী ঘোষণা না দেওয়া পর্যন্ত ইসরায়েল ও ফিলিস্তিনিদের মধ্যে সম্পূর্ণ যুদ্ধবিরতি ও সকল ধরনের শত্রুতা বন্ধ ঘোষণা ও কার্যকর করতে হবে। যে পক্ষ যুদ্ধবিরতি লঙ্ঘন করবে, আমেরিকা সামরিকভাবে তার বিরুদ্ধে যাবে। অশান্ত অঞ্চলে কোনো নতুন বর্ণবাদী রাষ্ট্র সৃষ্টি করা যাবে না। বরং আরব ও ইহুদিরা যদি ইব্রাহিমের আদি বিশ্বাসে ফিরে না-ও আসে, তবে তাদের একসঙ্গে বসবাস করতে হবে।</p>
+
+  <p>এই বার্তা একবার গ্রহণ ও ঘোষণা করা হলে আফগানিস্তান, পাকিস্তান, ইরান, ফিলিস্তিন, ইসরায়েল এবং বিশ্বের অন্যান্য স্থানের শত্রুতা পানিতে লবণ গলার মতো মিলিয়ে যেতে শুরু করবে, এবং মসিহ—পুনরুত্থিত ঈসা ও সুপথপ্রাপ্ত নেতা ইমাম আল-মাহদির—আবির্ভাবের পরিবেশ সৃষ্টি হবে।</p>
+
+  <p>তিনি আবির্ভূত হবেন বর্তমান ধনী ও দরিদ্রের চরম প্রান্তের সবচেয়ে নিপীড়িত, শোষিত ও দরিদ্রতম জনসাধারণের মধ্য থেকে—উসামা ইবনে যায়েদের মতো, যিনি আজকের ছিন্নভিন্ন বিশ্বের জন্য আল্লাহর বরকতময় নিদর্শন।</p>
+
+  <p>আর শয়তান-পৃষ্ঠপোষিত উসকানিদাতা ওসামা বিন লাদেন এবং তার পৃষ্ঠপোষক আফগানিস্তানের তালেবান সুন্নিবাদ ও ইরানি শিয়াবাদের অস্তিত্ব বিলুপ্ত হয়ে যাবে।</p>
+</div>
+    <div class="ln-box ln-key"><div class="ln-bt"><i>★</i>লেখকের মূল কথা</div><p>ইউরোপের মতো উপনিবেশিক অতীত না থাকায় আমেরিকা যদি “United States”-এর বহুবচন “S” বাদ দিয়ে “United State of America” হয়ে এক আল্লাহর বিশ্বায়নের নেতৃত্ব নেয় এবং যুদ্ধবিরতি ঘোষণা করে, তবে তিন বিলিয়ন মানুষ তাদের পাশে দাঁড়াবে।</p></div>
+  </div>
+</section><section class="ln-lesson" id="ln-l5">
+  <div class="ln-l-head"><div class="ln-l-meta"><span class="ln-l-no">লেকচার ৫</span><span>⏱ ৫ মিনিট</span><span>· পৃষ্ঠা ১২–১৪</span></div>
+    <h2>আফগানিস্তান যুদ্ধ, “বোমা ও রুটি” নীতি এবং পূর্ব দিগন্তের সূর্যোদয়</h2></div>
+  <div class="ln-l-body">
+    <div class="ln-goals"><b>📖 এই লেকচারে লেখক যা বলেছেন</b><ul><li>আফগানিস্তানে আরমাগেডনের সূচনা ও মুসলিম বিশ্বের গণবিস্ফোরণের আশঙ্কা</li><li>বিন লাদেন ও তালেবান উৎখাতের বুমেরাং প্রভাব এবং টনি ব্লেয়ারের ভূমিকা</li><li>পারভেজ মোশাররফের পতন এবং রাশিয়া-চীনের সম্ভাব্য পাল্টা চাল</li><li>আমেরিকার “বোমা ও রুটি” (Bomb and Bread) নীতির নিন্দা</li><li>পূর্ব থেকে পশ্চিমে অভিবাসন এবং পূর্ব দিগন্তে সূর্যোদয়ের দর্শন</li></ul></div>
+    <div class="ln-text-label">📜 মূল লেখার অনুবাদ</div>
+    <div class="ln-text">
+  <p>কিন্তু আমেরিকা এবং তার ইহুদি-খ্রিস্টান পৈশাচিকতার অংশীদারদের হামলা ইতিমধ্যেই আফগানিস্তানে আরমাগেডন<a class="ln-fn" href="#ln-g15">১৫</a> শুরু করে দিয়েছে। এই কাজটি ইব্রাহিমের ধর্মে বিশ্বাসী জনসাধারণের ওপর খ্রিস্টবিরোধীর (Anti-Christ) হামলা। এটি প্রথম পর্যায়েই আফগানিস্তান থেকে ইন্দোনেশিয়া দ্বীপপুঞ্জ পর্যন্ত বিশ্বাসী মুসলিম জনসাধারণের হৃদয়ে আগুন জ্বালিয়ে দিয়েছে। কিন্তু এটি বিশ্বের সমগ্র মুসলিম জাতিকে গ্রাস করবে। মুসলিম বিশ্বের কোনো ইহুদি-খ্রিস্টান স্বার্থের পদলেহী সরকার জনসাধারণের এই বিস্ফোরণ ঠেকাতে পারবে না।</p>
+
+  <p>এটি মসিহের বার্তার ইমেইল সংক্ষিপ্তসার, যা আমি আল্লাহর নামে বিশ্বমানবতার উদ্দেশ্যে লিখছি—যিনি অন্তর্দৃষ্টির মাধ্যমে আমাকে এটি লিখিয়েছেন এবং পাঠাতে বাধ্য করেছেন।</p>
+
+  <p>ইহুদি-খ্রিস্টান অভিযান যদি বিন লাদেনকে হত্যা ও তালেবানকে উৎখাতে সফল হয়ও, তবে তা বিন লাদেন, মোল্লা ওমর ও সাদ্দাম হোসাইনের মতো মুসলমানদের যুদ্ধক্ষমতা আরও সৃষ্টি করবে; অন্য সব মুসলিম শাসক শূন্যে পর্যবসিত হবে। ভ্রান্ত মৌলবাদীরা চালকের আসনে বসে বিন লাদেন, মোল্লা ওমর, সাদ্দাম ও খোমেনিকেই আদর্শ হিসেবে তুলে ধরবে।</p>
+
+  <p>আফগানিস্তানে “তথাকথিত সর্বদলীয় সরকার” বসানো বুশ-ব্লেয়ার পৈশাচিকতার ওপরই বুমেরাং হবে।</p>
+
+  <p>“ব্রিটিশ সিনিস্টার” টনি ব্লেয়ারই [মূলে: Tony Blower / Tony Beliar] বর্তমান তৃতীয় বিশ্বযুদ্ধ বা যুদ্ধের জননীর (mother of wars) উদ্যোগের মূল হোতা, যা ব্রিটিশ আধিপত্যকে অস্তিত্ব থেকে মুছে ফেলতে পারে। ব্রিটিশ জাতির প্রতি আমার সতর্কবার্তা হলো, তারা যেন তাদের এই টনি বেলিয়ালকে লাগাম পরায়।</p>
+
+  <p>সন্ত্রাসী বনাম সন্ত্রাসী যুদ্ধ বিশ্বকে বিপর্যয়ের কিনারায় নিয়ে এসেছে। মসিহের বার্তার একাদশ ঘণ্টার (eleventh hour) সংক্ষিপ্তসার হিসেবে আমি আকুল আবেদন জানাচ্ছি যে, বিশ্বসমস্যার মসিহীয় সমাধানে আশীর্বাদপ্রাপ্ত হওয়ার জন্য এই বার্তার পাঠ্য ও বুননের আলোকে আফগানিস্তানের বিরুদ্ধে সমস্ত আগ্রাসন অবিলম্বে বন্ধ করা হোক। অন্যথায় মহাপ্লাবনের জন্য প্রস্তুত হোন।</p>
+
+  <p>পরিস্থিতি বুশের দাবানল আর টনি বেলিয়ালের গর্জনের পক্ষে যাবে না। এটি নিশ্চিতভাবেই ঈসা ও মুসার সমান্তরাল মুহাম্মদের ইব্রাহিমি মাত্রা অনুযায়ী উসামা ইবনে যায়েদ এবং তাঁর পিতা-মাতার মতো নিপীড়িতদের পক্ষে যাবে। এরিয়েল শ্যারন এবং তার প্রক্সি ডব্লিউ. বুশ ও টনি ব্লেয়ারের ত্রিশূল অতি শীঘ্রই আল্লাহর পথনির্দেশিত বিশ্বনেতৃত্বের হাতে তার পরিণতির মুখোমুখি হবে; আর বৈশ্বিক ঐশী বিপ্লবের উজানের উৎসে পৈশাচিকতার পোষ্য ইরানি শিয়া, আফগানি সুন্নি এবং লাদেনীয় আরবীয় সন্ত্রাস নদীপথে বঙ্গোপসাগর ও ভারত মহাসাগরে ভেসে যাবে—সম্ভবত আল্লাহর শেষ রাসুলের ইঙ্গিতকৃত “হিন্দুস্তানের অভিযানের”<a class="ln-fn" href="#ln-g16">১৬</a> (Indian Expedition) মাধ্যমে।</p>
+
+  <p>আমি কোরআন, তাওরাত ও বাইবেলের পাঠ্য ও বুননের ওপর ভিত্তি করে সমস্যা ও সমাধানের বিস্তারিতসহ প্রকাশ্য ও অপ্রকাশ্য ইঙ্গিতগুলো দিয়েছি।</p>
+
+  <p>আফগানিস্তানে যুদ্ধ যদি দীর্ঘায়িত হয় এবং আফগানিস্তান, ইরান, পাকিস্তান ও সংলগ্ন মুসলিম-অধ্যুষিত জনগোষ্ঠী আফগান জনগণের পক্ষে এবং মার্কিন জোটের বিরুদ্ধে অঞ্চলটিকে কাঁপিয়ে তোলে, তবে পারভেজ মোশাররফ তাঁর জনগণ ও সেনাবাহিনীর হাতে ক্ষমতাচ্যুত হবেন; আর এর ফলে রাশিয়া ও চীন যদি সেই সুযোগ পায়—যা আমেরিকা ভিয়েতনামে নিজের পরাজয় ঢাকতে তালেবান-লাদেন জোটের মাধ্যমে রাশিয়ার সঙ্গে করেছিল—এবং মুসলমানদের পক্ষে তাদের ওজন ঢেলে দেয়, তবে তা কি আমেরিকার লাশের ব্যাগগুলোকে যুক্তরাষ্ট্রের কফিন এবং তাতে শেষ পেরেক বানিয়ে দেবে না?</p>
+
+  <p>আমেরিকা ও তার সহযোগীদের বুঝতে হবে যে “বোমা ও রুটি” (Bomb and Bread)<a class="ln-fn" href="#ln-g17">১৭</a> নীতি হলো আফগান জনগণের দারিদ্র্যের সঙ্গে নিষ্ঠুরতার সবচেয়ে লজ্জাজনক প্রকাশ ও নিষ্ঠুর পরিহাস। এর অর্থ হলো ধনী আমেরিকা রুটি ও মাখনের বিনিময়ে আফগানদের ধর্মচ্যুত করতে এসেছে। এটি আল্লাহর ক্রোধকে ত্বরান্বিত করবে এবং আমেরিকা ও তার মিত্রদের প্রতি ক্ষোভ ও ঘৃণা আরও বাড়িয়ে দেবে।</p>
+
+  <p>এখনই শেষ ও ন্যূনতম সুযোগ পশ্চিমের বহুরূপী কপটতার জঘন্য রাজনীতি বদলানোর এবং প্রাচ্যের ওপর শতাব্দীর পর শতাব্দী ধরে চালানো শোষণের জন্য তাওরাত, বাইবেল ও কোরআন হাতে নিয়ে ঘোষিত অনুতাপ ও ক্ষমা প্রার্থনা নিয়ে এগিয়ে আসার।</p>
+
+  <p>তাদের বুঝতে হবে যে তাদের পূর্বপুরুষেরা ছিল প্রাচ্য থেকে যাওয়া অভিবাসী, যাদের অধিকাংশই মহাদেশগুলো সংযুক্ত থাকা অবস্থায় আফগানিস্তানের গিরিপথ দিয়ে অভিবাসন করেছিল। এখন তাদের সেই একই আফগানিস্তানের গিরিপথ দিয়ে এশিয়া ও ভারতের তাদের পৈতৃক আবাসে ফিরে আসতে হবে বহুদিন বিচ্ছিন্ন থাকা প্রিয়জনদের প্রতি ভালোবাসা ও শ্রদ্ধা নিয়ে—মোটেও এমন অর্বাচীন জারজের মতো নয়, যে বোমা ও রুটি নিয়ে তাদের আদি পূর্বপুরুষদের জয় করে তাদের বন্য অসভ্যতায় বদলে দিতে আসে।</p>
+
+  <p><strong>সূর্য পূর্ব দিক থেকে ওঠে।</strong> পশ্চিম দিক থেকে সূর্য ওঠানোর যেকোনো চেষ্টা অর্থ কিয়ামত—যেমন মানুষ ও মানবসভ্যতার সূচনা পূর্ব থেকে পশ্চিমে ভ্রমণ করেছিল।</p>
+
+  <p>রুটি ও বোমা নিয়ে আফগানিস্তানে বুশ ও টনি ব্লেয়ারের দুঃসাহসিক অভিযান ব্যর্থ ও ঘৃণ্য।</p>
+
+  <p>দয়া করে আল্লাহর দোহাই, এটি বন্ধ করুন। খ্রিস্টবিরোধীর পক্ষে নয়, মসিহের পক্ষে হোন।</p>
+
+  <p>শত্রুতা থামান, সীমালঙ্ঘন ও আগ্রাসনের বদলে আলিঙ্গন ও পাশাপাশি চলার পথ ধরুন। আল্লাহর ক্রোধ এবং ক্ষমা—এখনো দুটি বিকল্প খোলা আছে।</p>
+
+  <p>কাউন্টডাউন শুরু হয়ে গেছে। শূন্যের পরই মহাপ্লাবন।</p>
+</div>
+    <div class="ln-box ln-key"><div class="ln-bt"><i>★</i>লেখকের মূল কথা</div><p>আফগানিস্তানে “বোমা ও রুটি” নীতি দিয়ে আগ্রাসন চালানো আমেরিকা ও তার মিত্রদের জন্য আত্মঘাতী হবে; শতাব্দীর শোষণের জন্য অনুতপ্ত হয়ে প্রাচ্যের আদি ভূমিতে ভালোবাসা ও শ্রদ্ধাসহ ফিরে আসাই একমাত্র পথ।</p></div>
+  </div>
+</section><section class="ln-lesson" id="ln-l6">
+  <div class="ln-l-head"><div class="ln-l-meta"><span class="ln-l-no">লেকচার ৬</span><span>⏱ ৩ মিনিট</span><span>· পৃষ্ঠা ১৪–১৫</span></div>
+    <h2>চূড়ান্ত প্রার্থনা ও “ইব্রাহিমের বিশ্বাসের অঙ্গীকারপত্র”</h2></div>
+  <div class="ln-l-body">
+    <div class="ln-goals"><b>📖 এই লেকচারে লেখক যা বলেছেন</b><ul><li>U.S.A. — “The United State of Allah” প্রার্থনা</li><li>বার্তাবাহকের স্বাক্ষর, তারিখ ও গণমাধ্যমে প্রেরণ (BBC, CNN, VOA)</li><li>চূড়ান্ত বিশ্বব্যবস্থার জন্য “ইব্রাহিমের বিশ্বাসের অঙ্গীকারপত্র” (Instruments of Abraham's Faith)</li></ul></div>
+    <div class="ln-text-label">📜 মূল লেখার অনুবাদ</div>
+    <div class="ln-text">
+  <p>হে আল্লাহ, হে প্রভু, হে মালিক, হে আল্লাহ—আমি তোমার বার্তা পৌঁছে দিয়েছি যাতে তোমার এই পৃথিবী “ইউনাইটেড স্টেটস অব আমেরিকা” (United States of America) থেকে <strong>U.S.A. — “দ্য ইউনাইটেড স্টেট অব আল্লাহ”</strong> (The United State of Allah)-এ পরিণত হয়; সেই আমেরিকার হাত থেকে, যারা মধ্যপ্রাচ্য ও এর আশপাশে তোমার রাসুলদের ভূমিতে সন্ত্রাসের যুদ্ধ শুরু করেছে, যেমনটি করেছিল তারা যারা তোমার সার্বভৌম একত্বের অধীনে মানবজাতির ঐক্যের বার্তার কারণে ইব্রাহিম, মুসা, ঈসা ও মুহাম্মদকে সন্ত্রস্ত করেছিল।</p>
+
+  <p>আমাদের ওপর তোমার মসিহ—সুপথপ্রাপ্ত নেতা “ইমাম আল-মাহদি”-কে—দিয়ে অনুগ্রহ করো, যাতে আমরা তাঁর সঙ্গে মিলে ভণ্ডদের এবং তাদের তথাকথিত পরাশক্তি খ্রিস্টবিরোধীর (Anti-Christ) বিরুদ্ধে লড়াই করতে পারি। আমিন।</p>
+
+  <div class="ln-sig">
+    <strong>ইমেইল অনুলিপি:</strong> বিবিসি (BBC), সিএনএন (CNN), ভয়েস অব আমেরিকা (VOA)<br>
+    <strong>মসিহের বার্তার সংক্ষিপ্তসারকারী:</strong><br>
+    আপনাদের নগণ্য বান্দা,<br>
+    <strong>ইমামউদ্দিন মুহাম্মদ ত্বহা বিন হাবীব</strong><br>
+    ২৪৮/২, সেকেন্ড কলোনি, মাজার রোড, মিরপুর-১, ঢাকা-১২১৬।<br>
+    <strong>তারিখ:</strong> ১০ অক্টোবর, ২০০১ খ্রিস্টাব্দ
+  </div>
+
+  <h3 class="ln-orig-h">চূড়ান্ত বিশ্বব্যবস্থার জন্য ইব্রাহিমের বিশ্বাসের অঙ্গীকারপত্র</h3>
+
+  <div class="ln-box ln-ex">
+    <div class="ln-bt"><i>✦</i>শপথনামা (Instruments of Abraham's Faith For Ultimate World Order)</div>
+    <p>আমি ........................................... পবিত্র শপথের ওপর দাঁড়িয়ে মুসা, ঈসা ও মুহাম্মদ (তাঁদের ওপর শান্তি বর্ষিত হোক)-এর মতো ইব্রাহিমের বিশ্বাস নতুন করে ঘোষণা করছি—সেই ইহুদি, খ্রিস্টান ও মোহামেডান কাল্টগুলোকে পরিত্যাগ করে, যেগুলো মানবজাতিকে আদম ও হাওয়ার আদি বিশ্বাস থেকে বিভক্ত করেছে।</p>
+    <p>আমরা ঘোষণা করছি যে জগৎসমূহের প্রতিপালক একমাত্র আল্লাহ ছাড়া কোনো উপাস্য নেই।</p>
+    <p>আমরা আরও ঘোষণা করছি যে কোনো সংস্কার ছাড়াই মানবজাতি কেবল একটিই। আমাদের মধ্যে যিনি ন্যায়নিষ্ঠ (তাকওয়াবান), তিনিই সর্বাধিক সম্মানিত।</p>
+    <p>এখন থেকে আমরা কেবল ইব্রাহিমের মতো একজন সুপথপ্রাপ্ত নেতার নেতৃত্বে মানবজাতিকে এক পরিবারের ভাই হিসেবে ঐক্যবদ্ধ করার জন্যই কাজ করব।</p>
+    <p>এটিই সেই বিশ্বায়ন, যার পক্ষে আমরা দাঁড়িয়েছি।</p>
+    <p>হে আমাদের প্রতিপালক, আমাদের ওপর রহমত বর্ষণ করো। আমিন।</p>
+    <p style="margin-top:12px;border-top:1px dashed var(--line);padding-top:10px">
+      <strong>স্বাক্ষর:</strong> ......................................................<br>
+      <strong>পূর্ণ নাম ও ঠিকানা:</strong> ........................................<br>
+      <strong>তারিখ:</strong> ......................................................
+    </p>
+  </div>
+</div>
+    <div class="ln-box ln-key"><div class="ln-bt"><i>★</i>লেখকের মূল কথা</div><p>চিঠির শেষে লেখক U.S.A.-কে “The United State of Allah” করার প্রার্থনা জানিয়ে একটি বিশ্বজনীন শপথনামা সংযুক্ত করেছেন—যাতে ইহুদি, খ্রিস্টান ও মোহামেডান কাল্ট বর্জন করে এক আল্লাহ ও এক মানবপরিবারের ঘোষণা দেওয়া হয়েছে।</p></div>
+  </div>
+</section>
+<section class="ln-lesson" id="ln-rev">
+  <div class="ln-l-head"><div class="ln-l-meta"><span class="ln-l-no">রিভিশন</span><span>⏱ ২ মিনিট</span></div>
+    <h2>রিভিশন: এক পাতায় লেখকের মূল কথাগুলো</h2><p class="ln-tag">প্রতিটি লেকচারে লেখক যা বলেছেন, এক নজরে।</p></div>
+  <div class="ln-l-body"><div class="ln-tw"><table><thead><tr><th style="width:7%">#</th><th style="width:30%">লেকচার</th><th>লেখকের মূল কথা</th></tr></thead><tbody><tr><td>১</td><td>মসিহের মিশন, তিন সন্ত্রাস ও উসামা ইবনে যায়েদ</td><td>বিশ্বের বর্তমান সংকট মুসা, ঈসা ও মুহাম্মদের প্রকৃত অনুসারীদের সংঘাত নয়; বরং শয়তান-প্ররোচিত তিনটি ঐতিহাসিক সন্ত্রাসের ফলে সৃষ্ট ইহুদি, খ্রিস্টান ও মোহামেডান ভণ্ডদের ত্রিশূল-সংঘাত।</td></tr><tr><td>২</td><td>বিশ্বসংকট, পশ্চিমা নৈতিকতা, লেখকের পরিবার ও ঐশী বিশ্বায়ন</td><td>যাঁরা বস্তুগত সম্পদে নেতৃত্ব দেন, তাঁদের নৈতিকতায়ও নেতৃত্ব দিতে হবে—নতুবা তা ঈর্ষা ও বিপর্যয় ছড়ায়; এখন বিশ্বায়নের একমাত্র পথ হলো ইহুদি, খ্রিস্টান ও মোহামেডান বিভাজন ত্যাগ করে ইব্রাহিমের একত্ববাদী বার্তায় ফিরে আসা।</td></tr><tr><td>৩</td><td>রেড অ্যালার্ট, সতর্কবার্তা ও ইতিহাসের প্রতিশোধ</td><td>ইতিহাস তার ঋণ সুদে-আসলে আদায় করে; আফগানিস্তানের পার্বত্য ভূমিতে আজকের সংঘাত হলো উপনিবেশিক শক্তি ও ধর্মীয় ভণ্ডদের নিজেদের কবর খোঁড়ার মঞ্চ—এখনই অনুতপ্ত হয়ে এক পরিবারের আহ্বানে সাড়া না দিলে সর্বগ্রাসী আগুন নেমে আসবে।</td></tr><tr><td>৪</td><td>৬০০ পৃষ্ঠার গ্রন্থ, দেশভাগ, মক্কার সন্ধান ও “ইউনাইটেড স্টেট অব আমেরিকা”</td><td>ইউরোপের মতো উপনিবেশিক অতীত না থাকায় আমেরিকা যদি “United States”-এর বহুবচন “S” বাদ দিয়ে “United State of America” হয়ে এক আল্লাহর বিশ্বায়নের নেতৃত্ব নেয় এবং যুদ্ধবিরতি ঘোষণা করে, তবে তিন বিলিয়ন মানুষ তাদের পাশে দাঁড়াবে।</td></tr><tr><td>৫</td><td>আফগানিস্তান যুদ্ধ, “বোমা ও রুটি” নীতি এবং পূর্ব দিগন্তের সূর্যোদয়</td><td>আফগানিস্তানে “বোমা ও রুটি” নীতি দিয়ে আগ্রাসন চালানো আমেরিকা ও তার মিত্রদের জন্য আত্মঘাতী হবে; শতাব্দীর শোষণের জন্য অনুতপ্ত হয়ে প্রাচ্যের আদি ভূমিতে ভালোবাসা ও শ্রদ্ধাসহ ফিরে আসাই একমাত্র পথ।</td></tr><tr><td>৬</td><td>চূড়ান্ত প্রার্থনা ও “ইব্রাহিমের বিশ্বাসের অঙ্গীকারপত্র”</td><td>চিঠির শেষে লেখক U.S.A.-কে “The United State of Allah” করার প্রার্থনা জানিয়ে একটি বিশ্বজনীন শপথনামা সংযুক্ত করেছেন—যাতে ইহুদি, খ্রিস্টান ও মোহামেডান কাল্ট বর্জন করে এক আল্লাহ ও এক মানবপরিবারের ঘোষণা দেওয়া হয়েছে।</td></tr></tbody></table></div></div>
+</section>
+<section class="ln-lesson" id="ln-quiz">
+  <div class="ln-l-head">
+    <div class="ln-l-meta"><span class="ln-l-no">কুইজ</span><span>⏱ ৪ মিনিট</span><span>· ৮টি প্রশ্ন</span></div>
+    <h2>কুইজ: লেখক কী বলেছেন?</h2>
+    <p class="ln-tag">একটি উত্তরে ক্লিক করো; সঠিক উত্তর ও ব্যাখ্যা দেখাবে। স্কোর: <span class="ln-score" id="ln-score">০ / ৮</span></p>
+  </div>
+  <div class="ln-l-body" id="ln-quizBody"><div class="ln-q" data-a="2"><p>১. লেখকের মতে ইব্রাহিমের পরিবারে বিভক্তি সৃষ্টিকারী তৃতীয় ও চূড়ান্ত সন্ত্রাসী কাজ কোনটি ছিল?</p><div class="ln-opts"><button class="ln-opt" type="button">ক) হারুনকে সন্ত্রস্ত করা</button><button class="ln-opt" type="button">খ) ঈসাকে ক্রুশবিদ্ধ করা</button><button class="ln-opt" type="button">গ) মৃত্যুর প্রাক্কালে নবী মুহাম্মদ (সা.)-কে শেষ ইচ্ছা লেখার জন্য কাগজ দিতে বাধা দেওয়া</button><button class="ln-opt" type="button">ঘ) মক্কা অবরোধ করা</button></div><div class="ln-why">✅ লেখক তিন সন্ত্রাসের তৃতীয়টি হিসেবে নবী (সা.)-কে শেষ ইচ্ছা লেখার কাগজ দিতে বাধা দেওয়ার ঘটনা উল্লেখ করেছেন। (লেকচার ১)</div></div><div class="ln-q" data-a="1"><p>২. লেখক আজকের বিশ্বের নেতৃত্বের জন্য কোন কিশোর সাহাবিকে সুনির্দিষ্ট আদর্শ হিসেবে তুলে ধরেছেন?</p><div class="ln-opts"><button class="ln-opt" type="button">ক) খালিদ ইবনে ওয়ালিদ</button><button class="ln-opt" type="button">খ) উসামা ইবনে যায়েদ</button><button class="ln-opt" type="button">গ) সালমান ফারসি</button><button class="ln-opt" type="button">ঘ) বিলাল (রা.)</button></div><div class="ln-why">✅ লেখক বারাকা ও যায়েদের পুত্র কিশোর উসামা ইবনে যায়েদকে বর্তমান যুগের নিপীড়িতদের নেতৃত্বের আদর্শ বলেছেন। (লেকচার ১ ও ২)</div></div><div class="ln-q" data-a="0"><p>৩. লেখকের মতে ওয়ার্ল্ড ট্রেড সেন্টার ও পেন্টাগন হামলার নেপথ্যে কারা ছিল?</p><div class="ln-opts"><button class="ln-opt" type="button">ক) ১৫% শোষক শ্রেণির লুটের মালের অংশীদাররাই</button><button class="ln-opt" type="button">খ) ৮৫% শোষিত দরিদ্র জনগোষ্ঠী</button><button class="ln-opt" type="button">গ) পূর্ব এশিয়ার দেশগুলো</button><button class="ln-opt" type="button">ঘ) ইউরোপীয় ইউনিয়ন</button></div><div class="ln-why">✅ লেখক লিখেছেন: ৮৫% শোষিত মানুষ নয়, বরং ১৫% শোষক শ্রেণির লুটের মালের অংশীদাররাই এই কাজ করেছে। (লেকচার ২)</div></div><div class="ln-q" data-a="1"><p>৪. ১৯৭২ সালে মক্কায় হিজরতের পর লেখক আল্লাহর ঘর ধরে কী প্রার্থনা করেছিলেন?</p><div class="ln-opts"><button class="ln-opt" type="button">ক) অর্থনৈতিক সমৃদ্ধির জন্য</button><button class="ln-opt" type="button">খ) ১৯৭১-এর যুদ্ধ ও পাকিস্তান ভাঙনের মূল হোতাদের অপসারণের জন্য</button><button class="ln-opt" type="button">গ) একটি মসজিদ নির্মাণের জন্য</button><button class="ln-opt" type="button">ঘ) নতুন রাষ্ট্র গঠনের জন্য</button></div><div class="ln-why">✅ লেখক লিখেছেন তিনি ১৯৭১-এর ট্র্যাজেডির মূল কুশীলবদের নির্মূল করার জন্য প্রার্থনা করেছিলেন। (লেকচার ৩)</div></div><div class="ln-q" data-a="2"><p>৫. বিশ্বায়নের নেতৃত্বের যোগ্য হওয়ার জন্য লেখক আমেরিকাকে তার নামের সংক্ষিপ্ত রূপ USA-তে কী পরিবর্তনের প্রস্তাব দিয়েছেন?</p><div class="ln-opts"><button class="ln-opt" type="button">ক) নাম বদলে “আমেরিকা ফেডারেশন” রাখা</button><button class="ln-opt" type="button">খ) “A” বাদ দেওয়া</button><button class="ln-opt" type="button">গ) বহুবচন “S” বাদ দিয়ে “United State of America” করা</button><button class="ln-opt" type="button">ঘ) জাতিসংঘের সঙ্গে একীভূত হওয়া</button></div><div class="ln-why">✅ লেখক “United States”-এর “S” বাদ দিয়ে একক রাষ্ট্র “United State of America” করার প্রস্তাব দিয়েছেন। (লেকচার ৪)</div></div><div class="ln-q" data-a="3"><p>৬. আফগানিস্তানে মার্কিন জোটের কোন নীতিকে লেখক দারিদ্র্যের সঙ্গে নিষ্ঠুর পরিহাস বলেছেন?</p><div class="ln-opts"><button class="ln-opt" type="button">ক) অর্থনৈতিক নিষেধাজ্ঞা</button><button class="ln-opt" type="button">খ) সীমান্ত বন্ধ নীতি</button><button class="ln-opt" type="button">গ) শান্তিরক্ষা মিশন</button><button class="ln-opt" type="button">ঘ) “বোমা ও রুটি” (Bomb and Bread) নীতি</button></div><div class="ln-why">✅ বিমান থেকে বোমার পাশাপাশি খাবারের প্যাকেট ফেলার “Bomb and Bread” নীতিকে লেখক নিষ্ঠুর পরিহাস বলেছেন। (লেকচার ৫)</div></div><div class="ln-q" data-a="0"><p>৭. চিঠির শেষে লেখক U.S.A.-এর কোন নতুন পূর্ণরূপ প্রার্থনা করেছেন?</p><div class="ln-opts"><button class="ln-opt" type="button">ক) The United State of Allah</button><button class="ln-opt" type="button">খ) The United States of Asia</button><button class="ln-opt" type="button">গ) The Universal State of Abraham</button><button class="ln-opt" type="button">ঘ) The United Society of Adam</button></div><div class="ln-why">✅ পৃষ্ঠা ১৪-তে লেখক প্রার্থনা করেছেন যেন পৃথিবী “The United State of Allah”-এ পরিণত হয়। (লেকচার ৬)</div></div><div class="ln-q" data-a="1"><p>৮. চিঠিটি কোন তারিখে এবং কোন তিনটি আন্তর্জাতিক গণমাধ্যমে ইমেইল অনুলিপি হিসেবে প্রেরিত হয়েছিল?</p><div class="ln-opts"><button class="ln-opt" type="button">ক) ১১ সেপ্টেম্বর ২০০১; আল-জাজিরা, রয়টার্স, এপি</button><button class="ln-opt" type="button">খ) ১০ অক্টোবর ২০০১; বিবিসি, সিএনএন ও ভয়েস অব আমেরিকা</button><button class="ln-opt" type="button">গ) ১ জানুয়ারি ২০০০; নিউইয়র্ক টাইমস, গার্ডিয়ান, টাইম</button><button class="ln-opt" type="button">ঘ) ১৫ আগস্ট ২০০৬; বিবিসি, সিসিটিভি, রয়টার্স</button></div><div class="ln-why">✅ পৃষ্ঠা ১৪-তে তারিখ ১০ অক্টোবর ২০০১ এবং ইমেইল অনুলিপি হিসেবে BBC, CNN ও VOA উল্লেখ আছে। (লেকচার ৬)</div></div></div>
+</section>
+<section class="ln-lesson ln-gloss" id="ln-glossary">
+  <div class="ln-l-head">
+    <div class="ln-l-meta"><span class="ln-l-no">শব্দকোষ</span><span>· ১৭টি পরিভাষা</span></div>
+    <h2>শব্দকোষ ও পাদটিকা</h2>
+    <p class="ln-tag">অনুবাদে ব্যবহৃত বিশেষায়িত ইংরেজি ও ঐতিহাসিক-ধর্মীয় শব্দের সহজ বাংলা অর্থ।</p>
+  </div>
+  <div class="ln-l-body">
+    <input id="ln-gsearch" type="search" placeholder="🔍 শব্দ খুঁজুন… (বাংলা বা ইংরেজি)">
+    <ol id="ln-glist"><li id="ln-g1"><span class="ln-gn">১</span><b>ওয়ার্ল্ড ট্রেড সেন্টার ও পেন্টাগন</b> <span class="ln-en">(WTC & Pentagon, 9/11)</span> — ২০০১ সালের ১১ সেপ্টেম্বর যুক্তরাষ্ট্রে নিউইয়র্কের ওয়ার্ল্ড ট্রেড সেন্টার (টুইন টাওয়ার) ও ওয়াশিংটনের পেন্টাগনে সংঘটিত সন্ত্রাসী হামলা।</li><li id="ln-g2"><span class="ln-gn">২</span><b>মোহামেডান ও মোহামেডানিজম</b> <span class="ln-en">(Mohammedan / Mohammedanism)</span> — লেখক “মুসলিম” (আল্লাহর প্রতি আত্মসমর্পণকারী) এবং “মোহামেডান” (নবীর মৃত্যুর পর গড়ে ওঠা সাম্প্রদায়িক কাল্ট)-এর মধ্যে কঠোর পার্থক্য টেনেছেন।</li><li id="ln-g3"><span class="ln-gn">৩</span><b>মসিহ</b> <span class="ln-en">(Messiah)</span> — ইহুদি, খ্রিস্টান ও ইসলামি ঐতিহ্যে প্রতীক্ষিত মুক্তিদাতা; লেখকের মতে তিনি কোনো এক গোষ্ঠীর নন, সমগ্র মানবজাতির মুক্তিদাতা।</li><li id="ln-g4"><span class="ln-gn">৪</span><b>উসামা ইবনে যায়েদ (রা.)</b> <span class="ln-en">(Usamah ibn Zaid)</span> — নবী (সা.)-এর পালকপুত্র যায়েদ ইবনে হারিসা এবং ধাত্রী উম্মে আইমান (বারাকা)-এর পুত্র, যাঁকে নবী (সা.) তরুণ বয়সে সেনাপতি নিযুক্ত করেছিলেন।</li><li id="ln-g5"><span class="ln-gn">৫</span><b>ওসামা বিন লাদেন</b> <span class="ln-en">(Osama bin Laden)</span> — সৌদি বংশোদ্ভূত আল-কায়েদা নেতা; লেখক তাঁকে উসামা ইবনে যায়েদের বিপরীতে দাজ্জালের রোপণ করা এজেন্ট হিসেবে উল্লেখ করেছেন।</li><li id="ln-g6"><span class="ln-gn">৬</span><b>ইমাম আল-মাহদি</b> <span class="ln-en">(Imam Al-Mahdi)</span> — ইসলামি ঐতিহ্যে শেষ যুগের প্রতীক্ষিত সুপথপ্রাপ্ত নেতা; লেখক তাঁকে ইহুদিদের মসিহ ও খ্রিস্টানদের পুনরুত্থিত ঈসার অভিন্ন মুক্তিদাতা রূপে দেখেছেন।</li><li id="ln-g7"><span class="ln-gn">৭</span><b>কাগজ-কলমের ঘটনা</b> <span class="ln-en">(Paper on the eve of death)</span> — নবী (সা.)-এর অন্তিম অসুস্থতার সময় লিখিত অসিয়তের জন্য কাগজ-কলম চাওয়া নিয়ে সাহাবিদের মধ্যে সৃষ্ট ঐতিহাসিক মতভেদ।</li><li id="ln-g8"><span class="ln-gn">৮</span><b>ক্রুসেড</b> <span class="ln-en">(Crusade)</span> — মধ্যযুগে জেরুজালেম দখলকে কেন্দ্র করে ইউরোপীয় খ্রিস্টান ও মুসলিম শাসকদের মধ্যকার ধর্মযুদ্ধ; ২০০১ সালে জর্জ বুশ সন্ত্রাসবিরোধী যুদ্ধ প্রসঙ্গে শব্দটি ব্যবহার করে বিতর্কের জন্ম দেন।</li><li id="ln-g9"><span class="ln-gn">৯</span><b>ক্লিনটন-মনিকা কেলেঙ্কারি</b> <span class="ln-en">(Clinton–Lewinsky scandal)</span> — ১৯৯৮ সালে মার্কিন প্রেসিডেন্ট বিল ক্লিনটন ও হোয়াইট হাউসের ইন্টার্ন মনিকা লিউইনস্কিকে ঘিরে সৃষ্ট বহুল আলোচিত রাজনৈতিক-নৈতিক কেলেঙ্কারি।</li><li id="ln-g10"><span class="ln-gn">১০</span><b>বুশ ও আল গোর নির্বাচন</b> <span class="ln-en">(2000 US Election)</span> — ২০০০ সালের মার্কিন প্রেসিডেন্ট নির্বাচনে ফ্লোরিডার ভোট পুনর্গণনা ও সুপ্রিম কোর্টের রায়ের পর জর্জ ডব্লিউ. বুশ ডেমোক্র্যাট প্রার্থী আল গোরের বিরুদ্ধে জয়ী হন।</li><li id="ln-g11"><span class="ln-gn">১১</span><b>টনি ব্লেয়ার</b> <span class="ln-en">(Tony Blair)</span> — যুক্তরাজ্যের সাবেক প্রধানমন্ত্রী (১৯৯৭–২০০৭), যিনি আফগানিস্তান ও ইরাক যুদ্ধে যুক্তরাষ্ট্রের প্রধান মিত্র ছিলেন।</li><li id="ln-g12"><span class="ln-gn">১২</span><b>ন্যাটো</b> <span class="ln-en">(NATO)</span> — নর্থ আটলান্টিক ট্রিটি অর্গানাইজেশন—উত্তর আমেরিকা ও ইউরোপীয় দেশগুলোর সামরিক জোট।</li><li id="ln-g13"><span class="ln-gn">১৩</span><b>নর্দার্ন অ্যালায়েন্স</b> <span class="ln-en">(Northern Alliance)</span> — আফগানিস্তানে তালেবানবিরোধী সশস্ত্র জোট, যা ২০০১ সালে মার্কিন অভিযানের স্থল-মিত্র হিসেবে কাজ করেছিল।</li><li id="ln-g14"><span class="ln-gn">১৪</span><b>২০০১ সালের বাংলাদেশের নির্বাচন</b> <span class="ln-en">(Bangladesh Election, Oct 2001)</span> — ১ অক্টোবর ২০০১-এ অনুষ্ঠিত বাংলাদেশের অষ্টম জাতীয় সংসদ নির্বাচন, যাতে শেখ হাসিনার নেতৃত্বাধীন আওয়ামী লীগ পরাজিত হয় এবং বিএনপি-জোট জয়ী হয়।</li><li id="ln-g15"><span class="ln-gn">১৫</span><b>আরমাগেডন</b> <span class="ln-en">(Armageddon)</span> — বাইবেলের পরকালতত্ত্বে শুভ ও অশুভ শক্তির চূড়ান্ত মহাযুদ্ধের স্থান ও প্রতীক।</li><li id="ln-g16"><span class="ln-gn">১৬</span><b>হিন্দুস্তানের অভিযান</b> <span class="ln-en">(Indian Expedition / Ghazwatul Hind)</span> — হাদিসে বর্ণিত ভারতীয় উপমহাদেশ-সংক্রান্ত অভিযান, যাকে লেখক বৈশ্বিক ঐশী বিপ্লবের অংশ হিসেবে উল্লেখ করেছেন।</li><li id="ln-g17"><span class="ln-gn">১৭</span><b>“বোমা ও রুটি” নীতি</b> <span class="ln-en">(Bomb and Bread policy)</span> — ২০০১ সালের অক্টোবরে আফগানিস্তানে মার্কিন বিমানবাহিনী একদিকে বোমাবর্ষণ এবং অন্যদিকে বিমান থেকে হলুদ প্যাকেটে খাদ্য (Humanitarian Daily Rations) ফেলার নীতি গ্রহণ করেছিল।</li></ol>
+  </div>
+</section>
+  </div>
+</div>
+
+<div class="ln-foot">📘 লেকচার নোট: “মসিহের মিশন — পৃথিবী থেকে স্বর্গের বার্তা” · মূল রচনা: ইমামউদ্দিন মুহাম্মদ ত্বহা বিন হাবীব<br>পূর্ণাঙ্গ বঙ্গানুবাদ (গবেষণা সংস্করণ); সব মতামত ও ভাষা মূল লেখকের।</div>
+
+<button class="ln-btn ln-totop" id="ln-totop" aria-label="উপরে যান"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+<div class="ln-pop" id="ln-pop" role="tooltip"></div>
+<script>
+(function(){
+  var root=document.getElementById('ln-root'); if(!root) return;
+  root.classList.add('ln-js');
+  var $=function(s,r){return (r||root).querySelector(s)}, $$=function(s,r){return Array.prototype.slice.call((r||root).querySelectorAll(s))};
+  var bn=function(n){return String(n).replace(/\d/g,function(d){return '০১২৩৪৫৬৭৮৯'[d]})};
+  var st={get:function(k){try{return localStorage.getItem(k)}catch(e){return null}},set:function(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+
+  /* theme & font size (default: light) */
+  var th=st.get('ln-theme'); if(th) root.setAttribute('data-theme',th);
+  $('#ln-themeBtn').onclick=function(){var t=root.getAttribute('data-theme')==='dark'?'light':'dark'; root.setAttribute('data-theme',t); st.set('ln-theme',t)};
+  var fs=parseFloat(st.get('ln-fs'))||1.06;
+  var setFs=function(){root.style.setProperty('--fs',fs+'rem')}; if(st.get('ln-fs')) setFs();
+  $('#ln-fsUp').onclick=function(){fs=Math.min(1.4,fs+.06); setFs(); st.set('ln-fs',fs)};
+  $('#ln-fsDown').onclick=function(){fs=Math.max(.9,fs-.06); setFs(); st.set('ln-fs',fs)};
+
+  /* smooth jump helper (works with Odoo's own scroll container) */
+  var flashT; function jump(id){var t=document.getElementById(id); if(!t) return; t.scrollIntoView({behavior:'smooth',block:'start'});
+    t.classList.add('ln-flash'); clearTimeout(flashT); flashT=setTimeout(function(){t.classList.remove('ln-flash')},1600);}
+
+  /* toc */
+  var det=$('.ln-toc');
+  var links=$$('.ln-toc a');
+  links.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault(); e.stopPropagation(); if(det) det.open=false; jump(a.getAttribute('href').slice(1));})});
+  var secs=$$('.ln-lesson[id]');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){ if(e.isIntersecting){
+      var i=secs.indexOf(e.target); links.forEach(function(l){l.classList.remove('ln-active')}); if(links[i]) links[i].classList.add('ln-active'); } })},{rootMargin:'-20% 0px -70% 0px'});
+    secs.forEach(function(s){io.observe(s)});
+  }
+
+  /* sticky offset under Odoo's fixed header, progress bar, back-to-top */
+  var hd=document.querySelector('#wrapwrap > header, header#top, header.o_header_standard');
+  var bar=$('#ln-progress'), top=$('#ln-totop'), pop=$('#ln-pop'), cur=null;
+  var hide=function(){pop.classList.remove('ln-show'); cur=null};
+  function onS(){
+    var off=0; if(hd){var cs=getComputedStyle(hd); if(cs.position==='fixed'||cs.position==='sticky') off=Math.max(0,hd.getBoundingClientRect().bottom);}
+    root.style.setProperty('--ln-off',off+'px');
+    var r=root.getBoundingClientRect(), vh=window.innerHeight, tot=Math.max(1,r.height-vh);
+    bar.style.width=Math.min(100,Math.max(0,-r.top/tot*100))+'%';
+    top.classList.toggle('ln-show', r.top<-700 && r.bottom>vh*.5);
+    if(cur) hide();
+  }
+  document.addEventListener('scroll',onS,{passive:true,capture:true}); window.addEventListener('resize',onS); onS();
+  top.onclick=function(){root.scrollIntoView({behavior:'smooth',block:'start'})};
+
+  /* footnote popovers */
+  $$('a.ln-fn').forEach(function(a){a.addEventListener('click',function(ev){
+    ev.preventDefault(); ev.stopPropagation();
+    if(cur===a){hide();return;}
+    var id=a.getAttribute('href').slice(1), it=document.getElementById(id); if(!it) return;
+    var c=it.cloneNode(true), gn=c.querySelector('.ln-gn'); if(gn) gn.remove();
+    pop.innerHTML=c.innerHTML+'<br><a class="ln-go" href="#'+id+'">শব্দকোষে দেখুন →</a>';
+    pop.querySelector('.ln-go').onclick=function(e){e.preventDefault(); e.stopPropagation(); hide(); jump(id)};
+    pop.classList.add('ln-show');
+    var r=a.getBoundingClientRect(), w=Math.min(340,window.innerWidth-24);
+    pop.style.maxWidth=w+'px';
+    pop.style.left=Math.max(12,Math.min(r.left-20,window.innerWidth-w-12))+'px';
+    var h=pop.offsetHeight, t=r.bottom+10; if(t+h>window.innerHeight-8) t=Math.max(8,r.top-10-h);
+    pop.style.top=t+'px'; cur=a;
+  })});
+  document.addEventListener('click',function(e){ if(!pop.contains(e.target)) hide(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') hide(); });
+
+  /* glossary search */
+  var gs=$('#ln-gsearch');
+  if(gs) gs.addEventListener('input',function(){var q=gs.value.trim().toLowerCase(); $$('#ln-glist li').forEach(function(li){li.style.display=(!q||li.textContent.toLowerCase().indexOf(q)>-1)?'':'none'})});
+
+  /* quiz */
+  var qs=$$('.ln-q'), sc=$('#ln-score'), score=0;
+  qs.forEach(function(d){
+    var a=+d.getAttribute('data-a'), opts=$$('.ln-opt',d);
+    opts.forEach(function(b,j){b.onclick=function(){
+      if(d.classList.contains('ln-done')) return;
+      d.classList.add('ln-done'); opts[a].classList.add('ln-right');
+      if(j===a) score++; else b.classList.add('ln-wrong');
+      sc.textContent=bn(score)+' / '+bn(qs.length);
+    }});
+  });
+})();
+</script>
+</div>
